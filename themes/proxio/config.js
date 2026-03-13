@@ -41,7 +41,7 @@ const CONFIG = {
   // ──────────────────────────────────────────
   // 公告區塊
   // ──────────────────────────────────────────
-  PROXIO_ANNOUNCEMENT_ENABLE: false,
+  PROXIO_ANNOUNCEMENT_ENABLE: true,
 
   // ──────────────────────────────────────────
   // 特性區塊（核心服務）
@@ -76,26 +76,22 @@ const CONFIG = {
   // ──────────────────────────────────────────
   PROXIO_CAREER_ENABLE: true,
   PROXIO_CAREER_TITLE: '專業歷程',
-  PROXIO_CAREER_TEXT_1: '深耕影像製作與專案管理十餘載，現專注於科技賦能與 AI 教育傳播',
-  PROXIO_CAREER_TEXT_2: `擁有 18 年以上專案管理經驗，橫跨 B'in Live 相信音樂、Funique VR 睿至等指標性娛樂科技公司。
-參與策劃金曲獎、金馬獎等大型典禮展演，並執導過多部屢獲國際影展肯定的 VR 虛擬實境作品。
-這份跨界基因讓我能精準洞察企業需求，將複雜的 AI 技術轉化為落地實用的解決方案與培訓課程。
-`,
+  PROXIO_CAREER_TEXT: '深耕影像製作與專案管理十餘載，現專注於科技賦能與 AI 教育傳播。擁有 18 年以上專案管理經驗，橫跨大型展演與 VR 影視製作。',
   PROXIO_CAREERS: [
     {
       title: 'Choosehill 選擇之丘 AI Studio',
-      description: '創辦人 ✦ AI 教學講師 ✦ 企業顧問',
-      date: '2024 - present'
+      bio: '創辦人 ✦ AI 教學講師 ✦ 企業顧問',
+      text: '2024 - present'
     },
     {
       title: 'Funique VR 睿至',
-      description: 'VR 導演 / 原創製作部總監 ✦ 虛擬實境內容產製',
-      date: '2019 - 2024'
+      bio: 'VR 導演 / 原創製作部總監 ✦ 虛擬實境內容產製',
+      text: '2019 - 2024'
     },
     {
       title: `B'in Live 相信音樂`,
-      description: '專案經理 ✦ 參與五月天巡迴演唱會及國內外大型展演專案',
-      date: '2016 - 2019'
+      bio: '專案經理 ✦ 參與五月天巡迴演唱會及國內外大型展演專案',
+      text: '2016 - 2019'
     }
   ],
 
@@ -141,36 +137,32 @@ const CONFIG = {
 
   PROXIO_TESTIMONIALS_ITEMS: [
     {
-      title: '化繁為簡的 AI 教學魔法',
-      link: '/',
-      image: '/images/proxio/author-01.png',
-      name: '企業內訓學員',
-      role: '行銷企劃',
-      text: '「一直覺得生成式 AI 門檻很高，但老師的課程設計非常接地氣！實機操作搭配實際工作情境，讓我上完課隔天就能用 AI 提升發想提案的效率。」'
+      PROXIO_TESTIMONIALS_ITEM_TEXT: '一直覺得生成式 AI 門檻很高，但老師的課程設計非常接地氣！實機操作搭配實際工作情境，讓我上完課隔天就能用 AI 提升發想提案的效率。',
+      PROXIO_TESTIMONIALS_ITEM_URL: '#',
+      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/proxio/author-01.png',
+      PROXIO_TESTIMONIALS_ITEM_NICKNAME: '企業內訓學員',
+      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '行銷企劃'
     },
     {
-      title: '專業的專案顧問視野',
-      link: '/',
-      image: '/images/proxio/author-02.png',
-      name: '專案決策主管',
-      role: '科技新創公司',
-      text: '「顧問擁有十幾年的跨界專案經驗，能敏銳抓出我們團隊在流程上的痛點，並提供符合成本效益的 AI 解決方案，溝通起來非常順暢且專業。」'
+      PROXIO_TESTIMONIALS_ITEM_TEXT: '顧問擁有十幾年的跨界專案經驗，能敏銳抓出我們團隊在流程上的痛點，並提供符合成本效益的 AI 解決方案，溝通起來非常順暢且專業。',
+      PROXIO_TESTIMONIALS_ITEM_URL: '#',
+      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/proxio/author-02.png',
+      PROXIO_TESTIMONIALS_ITEM_NICKNAME: '專案決策主管',
+      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '科技新創公司'
     },
     {
-      title: '高質感的影像內容製作',
-      link: '/',
-      image: '/images/proxio/author-03.png',
-      name: '品牌總監',
-      role: '生活品牌',
-      text: '「結合 AI 輔助與精湛的 VR 拍攝技術，產出的影像質感遠超預期。導演對節奏的掌握和敘事邏輯都相當精準，合作體驗極佳。」'
+      PROXIO_TESTIMONIALS_ITEM_TEXT: '結合 AI 輔助與精湛的 VR 拍攝技術，產出的影像質感遠超預期。導演對節奏的掌握和敘事邏輯都相當精準，合作體驗極佳。',
+      PROXIO_TESTIMONIALS_ITEM_URL: '#',
+      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/proxio/author-03.png',
+      PROXIO_TESTIMONIALS_ITEM_NICKNAME: '品牌總監',
+      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '生活品牌'
     },
     {
-      title: '政府標案企劃的神隊友',
-      link: '/',
-      image: '/images/proxio/author-01.png',
-      name: '合作夥伴',
-      role: '公關活動公司',
-      text: '「在政府標案的準備過程中，能提供條理分明且具前瞻性的科技應用企劃，是專案能順利推進並拿下標案的關鍵助力。」'
+      PROXIO_TESTIMONIALS_ITEM_TEXT: '在政府標案的準備過程中，能提供條理分明且具前瞻性的科技應用企劃，是專案能順利推進並拿下標案的關鍵助力。',
+      PROXIO_TESTIMONIALS_ITEM_URL: '#',
+      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/proxio/author-01.png',
+      PROXIO_TESTIMONIALS_ITEM_NICKNAME: '合作夥伴',
+      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '公關活動公司'
     }
   ],
 
@@ -184,20 +176,20 @@ const CONFIG = {
 
   PROXIO_FAQS: [
     {
-      question: '請問 Choosehill 提供哪些核心服務？',
-      answer: '我們專注於四大領域：AI 應用教學與顧問（含企業內訓、演講）、AI 結合影音與 VR 的內容製作、企業 AI 導入解決方案，以及品牌策略與行銷企劃。'
+      q: '請問 Choosehill 提供哪些核心服務？',
+      a: '我們專注於四大領域：AI 應用教學與顧問（含企業內訓、演講）、AI 結合影音與 VR 的內容製作、企業 AI 導入解決方案，以及品牌策略與行銷企劃。'
     },
     {
-      question: '完全不懂程式，可以報名 AI 課程嗎？',
-      answer: '絕對可以！我們的課程專為一般職場人士設計，強調理喻與應用，無需寫程式背景。我們會從最直覺的 Prompt (提示詞) 撰寫開始，循序漸進引導您駕馭 AI 工具。'
+      q: '完全不懂程式，可以報名 AI 課程嗎？',
+      a: '絕對可以！我們的課程專為一般職場人士設計，強調理喻與應用，無需寫程式背景。我們會從最直覺的 Prompt (提示詞) 撰寫開始，循序漸進引導您駕馭 AI 工具。'
     },
     {
-      question: '企業內部訓練可以客製化內容嗎？',
-      answer: '這是我們最強調的優勢。在課程前，我們會進行需求訪談，針對企業所屬產業（如行銷、人資、行政等）痛點，量身設計實作案例，確保學員能學以致用。'
+      q: '企業內部訓練可以客製化內容嗎？',
+      a: '這是我們最強調的優勢。在課程前，我們會進行需求訪談，針對企業所屬產業（如行銷、人資、行政等）痛點，量身設計實作案例，確保學員能學以致用。'
     },
     {
-      question: '創辦人擁有什麼樣的 AI 專業認證？',
-      answer: '創辦人 Chase Chao 具備「經濟部 iPAS+ 人工智慧應用企劃師」與「Google Certified Educator_Level 1 & 2」等多項專業認證，確保所提供的 AI 知識體系完整且符合業界標準。'
+      q: '創辦人擁有什麼樣的 AI 專業認證？',
+      a: '創辦人 Chase Chao 具備「經濟部 iPAS+ 人工智慧應用企劃師」與「Google Certified Educator_Level 1 & 2」等多項專業認證，確保所提供的 AI 知識體系完整且符合業界標準。'
     }
   ],
 
