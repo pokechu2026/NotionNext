@@ -1,278 +1,243 @@
 /**
- * 另一个落地页主题
+ * Choosehill 選擇之丘 AI — Proxio 主題設定
+ * 創辦人：Chase Chao（趙建翔）
+ * UNDERSTANDING AI. EMPOWERING LEARNING. CONNECTING OPPORTUNITIES.
  */
 const CONFIG = {
-  PROXIO_WELCOME_COVER_ENABLE: true, //是否显示页面进入的欢迎文字
-  PROXIO_WELCOME_TEXT: '欢迎来到此网站，点击任意位置进入', // 欢迎文字，留空则不启用
+  PROXIO_WELCOME_COVER_ENABLE: true, // ⚠️ 必須為 true 避免白畫面
+  PROXIO_WELCOME_TEXT: '歡迎來到選擇之丘 AI，點擊任意位置進入', // 歡迎語
 
-  // 英雄区块导航
-  PROXIO_HERO_ENABLE: true, // 开启英雄区
-  PROXIO_HERO_TITLE_1: '开源且免费的基于 Notion 笔记的网站构建工具', // 英雄区文字
-  PROXIO_HERO_TITLE_2: '通过笔记无感知地建站、成倍放大您的价值', // 英雄区文字
-  // 英雄区两个按钮，如果TEXT留空则隐藏按钮
-  PROXIO_HERO_BUTTON_1_TEXT: '开始体验', // 英雄区按钮
-  PROXIO_HERO_BUTTON_1_URL:
-    'https://docs.tangly1024.com/article/vercel-deploy-notion-next', // 英雄区按钮
-  PROXIO_HERO_BUTTON_2_TEXT: '在Github上关注', // 英雄区按钮
-  PROXIO_HERO_BUTTON_2_URL: 'https://github.com/tangly1024/NotionNext', // 英雄区按钮
-  PROXIO_HERO_BUTTON_2_ICON: '/images/starter/github-mark.svg', // 英雄区按钮2的图标，不需要则留空
+  // ──────────────────────────────────────────
+  // 英雄區（Hero）
+  // ──────────────────────────────────────────
+  PROXIO_HERO_ENABLE: true,
+  PROXIO_HERO_TITLE_1: '用 AI 讓每個人都能發光發熱', // 主標題
+  PROXIO_HERO_TITLE_2: '為企業、學校與個人打造專屬的 AI 應用能力，迎向未來知識工作', // 副標題
 
-  // 英雄区配图，如需隐藏，改为空值即可 ''
-  PROXIO_HERO_BANNER_IMAGE: '', // hero区背景，默认是获取Notion背景，如需另外配置图片可以填写在这里
-  PROXIO_HERO_BANNER_IFRAME_URL: '', // hero背景区内嵌背景网页 ，可以配置一个网页地址，例如动画网页https://my.spline.design/untitled-b0c6e886227646c34afc82cdc6de4ca2/
+  // 英雄區按鈕
+  PROXIO_HERO_BUTTON_1_TEXT: '探索服務',
+  PROXIO_HERO_BUTTON_1_URL: '/about',
+  PROXIO_HERO_BUTTON_2_TEXT: '立即聯繫',
+  PROXIO_HERO_BUTTON_2_URL: 'mailto:choosehill@gmail.com',
+  PROXIO_HERO_BUTTON_2_ICON: '', // 可填入 email icon 路徑
 
-  // 文章区块
-  PROXIO_BLOG_ENABLE: true, // 首页博文区块开关
-  PROXIO_BLOG_TITLE: '作品',
-  PROXIO_BLOG_COUNT: 4, // 首页博文区块展示前4篇文章
-  PROXIO_BLOG_TEXT_1: '我的最新动态',
+  // 英雄區背景圖
+  PROXIO_HERO_BANNER_IMAGE: '',
+  PROXIO_HERO_BANNER_IFRAME_URL: '',
 
-  // 区块默认内容显示文章的summary文本，但也支持用自定义图片或logo德国替换掉占位显示内容
-  PROXIO_BLOG_PLACEHOLDER_IMG_URL_1: '', // 填写要替换成的图片，支持图床或直接上传到项目中，示例  /images/feature-1.webp
+  // ──────────────────────────────────────────
+  // 文章區塊（最新內容）
+  // ──────────────────────────────────────────
+  PROXIO_BLOG_ENABLE: true,
+  PROXIO_BLOG_TITLE: '最新內容',
+  PROXIO_BLOG_COUNT: 4,
+  PROXIO_BLOG_TEXT_1: '最新 AI 應用教學與案例分享',
+
+  PROXIO_BLOG_PLACEHOLDER_IMG_URL_1: '',
   PROXIO_BLOG_PLACEHOLDER_IMG_URL_2: '',
   PROXIO_BLOG_PLACEHOLDER_IMG_URL_3: '',
   PROXIO_BLOG_PLACEHOLDER_IMG_URL_4: '',
 
-  PROXIO_ANNOUNCEMENT_ENABLE: true, //公告文字区块
+  // ──────────────────────────────────────────
+  // 公告區塊
+  // ──────────────────────────────────────────
+  PROXIO_ANNOUNCEMENT_ENABLE: true,
 
-  // 特性区块
-  PROXIO_FEATURE_ENABLE: true, // 特性区块开关
-  PROXIO_FEATURE_TITLE: '为什么选我',
-  PROXIO_FEATURE_TEXT_1: '我能让您的项目焕发光彩',
-  PROXIO_FEATURE_TEXT_2: '丰富的案例经验，专业的技术服务，优质的沟通效率',
+  // ──────────────────────────────────────────
+  // 特性區塊（核心服務）
+  // ──────────────────────────────────────────
+  PROXIO_FEATURE_ENABLE: true,
+  PROXIO_FEATURE_TITLE: '我們能為您做什麼',
+  PROXIO_FEATURE_TEXT_1: '提供全方位的 AI 教學與顧問服務，賦能未來工作力',
+  PROXIO_FEATURE_TEXT_2: '實戰導向的課程設計、專業的 VR/XR 內容製作、高效的企業 AI 自動化方案',
 
-  // 特性1
-  PROXIO_FEATURE_1_ICON_CLASS: 'fa-solid fa-stopwatch', // fas图标
-  PROXIO_FEATURE_1_ICON_IMG_URL: '', // 图片图标选填，默认是fas图标，如果需要图片图标可以填写图片地址，示例/avatar.png
-  PROXIO_FEATURE_1_TITLE_1: '高效工作流程',
-  PROXIO_FEATURE_1_TEXT_1:
-    '精简的设计流程确保快速交付，在紧迫的工期下仍能保证品质与细节不打折扣。',
+  PROXIO_FEATURE_1_TITLE_1: 'AI 教學與顧問',
+  PROXIO_FEATURE_1_TEXT_1: '專為企業、公部門與學校設計的實體 AI 工作坊與演講。我們提供客製化的 AI 應用教學，從概念解析到實機操作，讓學員快速掌握生成式 AI，提升工作效率與創造力。',
+  PROXIO_FEATURE_1_BUTTON_TEXT: '了解更多',
+  PROXIO_FEATURE_1_BUTTON_URL: '/about',
 
-  PROXIO_FEATURE_2_ICON_CLASS: 'fa-solid fa-comments',
-  PROXIO_FEATURE_2_ICON_IMG_URL: '',
-  PROXIO_FEATURE_2_TITLE_1: '协作式流程',
-  PROXIO_FEATURE_2_TEXT_1: '与你紧密合作，融合反馈意见，打造超越预期的设计',
+  PROXIO_FEATURE_2_TITLE_1: 'AI 內容製作',
+  PROXIO_FEATURE_2_TEXT_1: '結合 AI 生成技術與專業影像後製，提供企業高質感的影音與視覺設計服務。包含產品形象影片、活動紀錄，並具備 360 度 VR 虛擬實境拍攝與沉浸式體驗設計能力。',
+  PROXIO_FEATURE_2_BUTTON_TEXT: '了解更多',
+  PROXIO_FEATURE_2_BUTTON_URL: '/about',
 
-  PROXIO_FEATURE_3_ICON_CLASS: 'fa-solid fa-search',
-  PROXIO_FEATURE_3_ICON_IMG_URL: '',
-  PROXIO_FEATURE_3_TITLE_1: '细节把控',
-  PROXIO_FEATURE_3_TEXT_1:
-    '精益求精雕琢每个元素，确保成品精致统一，令人过目难忘',
+  PROXIO_FEATURE_3_TITLE_1: '企業 AI 解決方案',
+  PROXIO_FEATURE_3_TEXT_1: '協助企業將 AI 導入現有工作流程。透過客製化顧問服務，我們提供流程診斷、AI 工具評估與自動化腳本建置，量身打造適合您組織的數位轉型藍圖。',
+  PROXIO_FEATURE_3_BUTTON_TEXT: '了解更多',
+  PROXIO_FEATURE_3_BUTTON_URL: '/about',
 
-  PROXIO_FEATURE_BUTTON_TEXT: '了解更多', // 按钮文字
-  PROXIO_FEATURE_BUTTON_URL: 'https://github.com/tangly1024/NotionNext', // 按钮跳转
+  PROXIO_FEATURE_4_TITLE_1: '品牌策略與 AI 行銷',
+  PROXIO_FEATURE_4_TEXT_1: '運用 AI 數據分析與生成技術，協助客戶制定精準的品牌行銷策略。從政府標案企劃、展場活動設計到社群內容經營，打造整合性的品牌體驗。',
+  PROXIO_FEATURE_4_BUTTON_TEXT: '了解更多',
+  PROXIO_FEATURE_4_BUTTON_URL: '/about',
 
-  // 首页生涯区块
-  PROXIO_CAREER_ENABLE: true, // 区块开关
-  PROXIO_CAREER_TITLE: '生涯',
-  PROXIO_CAREER_TEXT: '以下是我的职业生涯',
-
-  // 生涯内容卡牌 ，title是标题 ，bio是备注，text是详情
+  // ──────────────────────────────────────────
+  // 生涯歷程區塊
+  // ──────────────────────────────────────────
+  PROXIO_CAREER_ENABLE: true,
+  PROXIO_CAREER_TITLE: '專業歷程',
+  PROXIO_CAREER_TEXT_1: '深耕影像製作與專案管理十餘載，現專注於科技賦能與 AI 教育傳播',
+  PROXIO_CAREER_TEXT_2: `擁有 18 年以上專案管理經驗，橫跨 B'in Live 相信音樂、Funique VR 睿至等指標性娛樂科技公司。
+參與策劃金曲獎、金馬獎等大型典禮展演，並執導過多部屢獲國際影展肯定的 VR 虛擬實境作品。
+這份跨界基因讓我能精準洞察企業需求，將複雜的 AI 技術轉化為落地實用的解決方案與培訓課程。
+`,
   PROXIO_CAREERS: [
     {
-      title: 'Freelance Architect',
-      bio: '2016-2020',
-      text: 'As a freelance architect, I worked on a range of residential and commercial projects, balancing form and function. I collaborated with clients and contractors to transform concepts into reality, ensuring each design was both aesthetically pleasing and structurally sound.'
+      title: 'Choosehill 選擇之丘 AI Studio',
+      description: '創辦人 ✦ AI 教學講師 ✦ 企業顧問',
+      date: '2024 - present'
     },
     {
-      title: 'Product Designer at Spotify',
-      bio: '2020-2022',
-      text: 'At Spotify, I helped shape innovative features for millions of users globally. My focus was on creating seamless music discovery experiences, enhancing user interfaces, and optimizing cross-platform navigation, which led to an improved product flow and increased user satisfaction.'
+      title: 'Funique VR 睿至',
+      description: 'VR 導演 / 原創製作部總監 ✦ 虛擬實境內容產製',
+      date: '2019 - 2024'
     },
     {
-      title: 'Freelance Product Designer',
-      bio: '2022-Now',
-      text: 'Now I design user-centric products that align with client visions. As a freelance product designer, I collaborate with startups and established companies, crafting solutions that elevate user experiences and increase engagement across both digital and physical interfaces.'
+      title: `B'in Live 相信音樂`,
+      description: '專案經理 ✦ 參與五月天巡迴演唱會及國內外大型展演專案',
+      date: '2016 - 2019'
     }
   ],
 
-  // 首页用户测评区块
-  PROXIO_TESTIMONIALS_ENABLE: true, // 测评区块开关
-  PROXIO_TESTIMONIALS_TITLE: '用户反馈',
-  PROXIO_TESTIMONIALS_TEXT_1: '我们的用户怎么说',
-  PROXIO_TESTIMONIALS_TEXT_2:
-    '数千位站长选择用NotionNext搭建他们的网站,通过帮助手册、交流社群以及技术咨询，大家成功上线了自己的网站',
+  // ──────────────────────────────────────────
+  // 關於創辦人區塊
+  // ──────────────────────────────────────────
+  PROXIO_ABOUT_ENABLE: true,
+  PROXIO_ABOUT_TITLE: '關於創辦人',
+  PROXIO_ABOUT_TEXT_1: 'Chase Chao 趙建翔',
+  PROXIO_ABOUT_TEXT_2:
+    '擁有經濟部 iPAS+ 人工智慧應用企劃師、Google 認證教育家等多項專業資格。我深信 AI 不是取代人的工具，而是賦能每個人的魔法。透過「選擇之丘」，我期望搭建理解 AI 的橋樑，將艱澀技術化為普及應用，為每個人、每個團隊開啟無限可能。',
+  PROXIO_ABOUT_PHOTO_URL: '', // 留空預設使用左側區域的排版
+  PROXIO_ABOUT_VAL_1: '18 年+',
+  PROXIO_ABOUT_VAL_1_TEXT: '專案管理與整合經驗',
+  PROXIO_ABOUT_VAL_2: '100+',
+  PROXIO_ABOUT_VAL_2_TEXT: '服務企業與組織團隊',
+  PROXIO_ABOUT_VAL_3: '500+',
+  PROXIO_ABOUT_VAL_3_TEXT: 'AI 課程培育學員數',
+  PROXIO_ABOUT_VAL_4: '10+',
+  PROXIO_ABOUT_VAL_4_TEXT: '國內外影展獲獎與入圍',
 
-  // 用户测评处的跳转按钮
-  PROXIO_TESTIMONIALS_BUTTON_URL: '/about',
-  PROXIO_TESTIMONIALS_BUTTON_TEXT: '联系我',
+  // ──────────────────────────────────────────
+  // 滾動展示區塊 (Brands)
+  // ──────────────────────────────────────────
+  PROXIO_BRANDS_ENABLE: true,
+  PROXIO_BRANDS: [
+    'Generative AI',
+    'AI 培訓工作坊',
+    '企業數位轉型',
+    'VR 虛擬實境製作',
+    '品牌行銷策略',
+    '專案管理顧問'
+  ],
 
-  // 这里不支持CONFIG和环境变量，需要一一修改此处代码。
+  // ──────────────────────────────────────────
+  // 用戶評價區塊
+  // ──────────────────────────────────────────
+  PROXIO_TESTIMONIALS_ENABLE: true,
+  PROXIO_TESTIMONIALS_TITLE: '學員與客戶反饋',
+  PROXIO_TESTIMONIALS_TEXT_1: '我們引以為傲的服務價值',
+  PROXIO_TESTIMONIALS_TEXT_2: '看看那些與我們合作過、參與過課程的朋友怎麼說',
+  PROXIO_TESTIMONIALS_STAR_ICON: '/images/proxio/star-fill.svg',
+
   PROXIO_TESTIMONIALS_ITEMS: [
     {
-      PROXIO_TESTIMONIALS_ITEM_TEXT:
-        '感谢大佬的方法。之前尝试过Super、Potion等国外的第三方平台，实现效果一般，个性化程度远不如这个方法，已经用起来了！ ',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR:
-        'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F22de3fcb-d90d-4271-bc01-f815f476122b%2F4FE0A0C0-E487-4C74-BF8E-6F01A27461B8-14186-000008094BC289A6.jpg?table=collection&id=a320a2cc-6ebe-4a8d-95cc-ea94e63bced9&width=200',
-      PROXIO_TESTIMONIALS_ITEM_NICKNAME: 'Ryan_G',
-      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: 'Ryan`Log 站长',
-      PROXIO_TESTIMONIALS_ITEM_URL: 'https://blog.gaoran.xyz/'
+      title: '化繁為簡的 AI 教學魔法',
+      link: '/',
+      image: '/images/proxio/author-01.png',
+      name: '企業內訓學員',
+      role: '行銷企劃',
+      text: '「一直覺得生成式 AI 門檻很高，但老師的課程設計非常接地氣！實機操作搭配實際工作情境，讓我上完課隔天就能用 AI 提升發想提案的效率。」'
     },
     {
-      PROXIO_TESTIMONIALS_ITEM_TEXT:
-        '很喜欢这个主题，本代码小白用三天台风假期搭建出来了，还根据大佬的教程弄了自定义域名，十分感谢，已请喝咖啡~',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR:
-        'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0d33d169-f932-41ff-ac6b-88a923c08e02%2F%25E5%25A4%25B4%25E5%2583%258F.jfif?table=collection&id=7787658d-d5c0-4f34-8e32-60c523dfaba3&width=400',
-      PROXIO_TESTIMONIALS_ITEM_NICKNAME: 'Asenkits',
-      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '阿森的百宝袋 站长',
-      PROXIO_TESTIMONIALS_ITEM_URL: 'https://asenkits.top/'
+      title: '專業的專案顧問視野',
+      link: '/',
+      image: '/images/proxio/author-02.png',
+      name: '專案決策主管',
+      role: '科技新創公司',
+      text: '「顧問擁有十幾年的跨界專案經驗，能敏銳抓出我們團隊在流程上的痛點，並提供符合成本效益的 AI 解決方案，溝通起來非常順暢且專業。」'
     },
     {
-      PROXIO_TESTIMONIALS_ITEM_TEXT:
-        '呜呜呜，经过一个下午的努力，终于把博客部署好啦，非常感谢Tangly1024大佬的框架和教程，这是我有生之年用过的最好用的博客框架┭┮﹏┭┮。从今之后，我就可以在自己的博客里bb啦，( •̀ ω •́ )y ',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/avatar.png',
-      PROXIO_TESTIMONIALS_ITEM_NICKNAME: 'DWIND',
-      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '且听风吟 站长',
-      PROXIO_TESTIMONIALS_ITEM_URL: 'https://www.dwind.top/'
+      title: '高質感的影像內容製作',
+      link: '/',
+      image: '/images/proxio/author-03.png',
+      name: '品牌總監',
+      role: '生活品牌',
+      text: '「結合 AI 輔助與精湛的 VR 拍攝技術，產出的影像質感遠超預期。導演對節奏的掌握和敘事邏輯都相當精準，合作體驗極佳。」'
     },
     {
-      PROXIO_TESTIMONIALS_ITEM_TEXT:
-        '感谢提供这么好的项目哈哈 之前一直不知道怎么部署(别的项目好难好复杂)这个相对非常简单 新手非常友好哦',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR:
-        'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd52f6766-3e32-4c3d-8529-46e1f214360f%2Ffavicon.svg?table=collection&id=7d76aad5-a2c4-4d9a-887c-c7913fae4eed&width=400',
-      PROXIO_TESTIMONIALS_ITEM_NICKNAME: '迪升disheng ',
-      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: 'AI资源分享 Blog',
-      PROXIO_TESTIMONIALS_ITEM_URL: 'https://blog.disheng.org/'
-    },
-    {
-      PROXIO_TESTIMONIALS_ITEM_TEXT:
-        '灰常感谢大佬的博客项目，能将博客和notion结合起来，这一直是我挺期待的博客模式。',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/avatar.png',
-      PROXIO_TESTIMONIALS_ITEM_NICKNAME: 'AnJhon',
-      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: 'Anjhon`s Blog 站长',
-      PROXIO_TESTIMONIALS_ITEM_URL: 'https://www.anjhon.top'
-    },
-    {
-      PROXIO_TESTIMONIALS_ITEM_TEXT: '用好久了，太感谢了',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/avatar.png',
-      PROXIO_TESTIMONIALS_ITEM_NICKNAME: 'LUCEN',
-      PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: 'LUCEN考验辅导 站长',
-      PROXIO_TESTIMONIALS_ITEM_URL: 'https://www.lucenczz.top/'
+      title: '政府標案企劃的神隊友',
+      link: '/',
+      image: '/images/proxio/author-01.png',
+      name: '合作夥伴',
+      role: '公關活動公司',
+      text: '「在政府標案的準備過程中，能提供條理分明且具前瞻性的科技應用企劃，是專案能順利推進並拿下標案的關鍵助力。」'
     }
   ],
 
-  //   FAQ 常见问题模块
-  PROXIO_FAQ_ENABLE: true, // 常见问题模块开关
-  PROXIO_FAQ_TITLE: '常见问题解答',
-  PROXIO_FAQ_TEXT_1: '有任何问题吗？请看这里',
-  PROXIO_FAQ_TEXT_2: '我们收集了常见的用户疑问',
+  // ──────────────────────────────────────────
+  // 常見問題區塊 (FAQ)
+  // ──────────────────────────────────────────
+  PROXIO_FAQ_ENABLE: true,
+  PROXIO_FAQ_TITLE: '常見問題',
+  PROXIO_FAQ_TEXT_1: '解答您的疑惑，開啟合作第一步',
+  PROXIO_FAQ_TEXT_2: '',
+
   PROXIO_FAQS: [
     {
-      q: 'NotionNext有帮助文档吗？',
-      a: 'NotionNext提供了<a href="https://docs.tangly1024.com/about" className="underline">帮助文档</a>，操作<a href="https://www.bilibili.com/video/BV1fM4y1L7Qi/" className="underline">演示视频</a>，以及<a href="https://docs.tangly1024.com/article/chat-community" className="underline">交流社群</a>来协助您完成网站的搭建部署'
+      question: '請問 Choosehill 提供哪些核心服務？',
+      answer: '我們專注於四大領域：AI 應用教學與顧問（含企業內訓、演講）、AI 結合影音與 VR 的內容製作、企業 AI 導入解決方案，以及品牌策略與行銷企劃。'
     },
     {
-      q: '部署后要如何编写文章？',
-      a: '您可以在Notion中之间添加或修改类型为Post的页面，内容将被实时同步在站点中，详情参考<a className="underline" href="https://docs.tangly1024.com/article/start-to-write">《帮助文档》</a>'
+      question: '完全不懂程式，可以報名 AI 課程嗎？',
+      answer: '絕對可以！我們的課程專為一般職場人士設計，強調理喻與應用，無需寫程式背景。我們會從最直覺的 Prompt (提示詞) 撰寫開始，循序漸進引導您駕馭 AI 工具。'
     },
     {
-      q: '站点部署失败，更新失败？',
-      a: '通常是配置修改错误导致，请检查配置或者重试操作步骤，或者通过Vercel后台的Deployments中找到错误日志，并向网友求助'
+      question: '企業內部訓練可以客製化內容嗎？',
+      answer: '這是我們最強調的優勢。在課程前，我們會進行需求訪談，針對企業所屬產業（如行銷、人資、行政等）痛點，量身設計實作案例，確保學員能學以致用。'
     },
     {
-      q: '文章没有实时同步？',
-      a: '先检查Notion_Page_ID是否正确配置，其次由于博客的每个页面都有独立缓存，刷新网页后即可解决'
+      question: '創辦人擁有什麼樣的 AI 專業認證？',
+      answer: '創辦人 Chase Chao 具備「經濟部 iPAS+ 人工智慧應用企劃師」與「Google Certified Educator_Level 1 & 2」等多項專業認證，確保所提供的 AI 知識體系完整且符合業界標準。'
     }
   ],
 
-  // 关于作者区块
-  PROXIO_ABOUT_ENABLE: true, // 关于作者区块区块开关
-  PROXIO_ABOUT_TITLE: '关于作者',
-  PROXIO_ABOUT_TEXT_1: 'I am an Architect Turned Into a Product Designer',
-  PROXIO_ABOUT_TEXT_2:
-    'With a background in architecture, I now apply my expertise to product design, blending aesthetics, functionality, and innovation. My goal is to create modern, user-focused designs that bring your vision to life.',
-  PROXIO_ABOUT_PHOTO_URL: '/avatar.png',
-  PROXIO_ABOUT_KEY_1: '经验年限',
-  PROXIO_ABOUT_VAL_1: '10年+',
-  PROXIO_ABOUT_KEY_2: '客户',
-  PROXIO_ABOUT_VAL_2: '1000+',
-  PROXIO_ABOUT_KEY_3: '交付项目',
-  PROXIO_ABOUT_VAL_3: '5000+',
-  PROXIO_ABOUT_KEY_4: '累积创作时长（小时）',
-  PROXIO_ABOUT_VAL_4: '10000+',
+  // ──────────────────────────────────────────
+  // 行動呼吁區塊 (CTA)
+  // ──────────────────────────────────────────
+  PROXIO_CTA_ENABLE: true,
+  PROXIO_CTA_TITLE: '讓 AI 成為您最強大的工作夥伴',
+  PROXIO_CTA_TITLE_2: '立刻開始數位轉型',
+  PROXIO_CTA_DESCRIPTION:
+    '不管是想提升個人競爭力，還是帶領團隊無痛導入 AI 工作流，Choosehill AI 都能為您提供最適合的支援。期待與您聯絡！',
+  PROXIO_CTA_BUTTON: true,
+  PROXIO_CTA_BUTTON_URL: 'mailto:choosehill@gmail.com',
+  PROXIO_CTA_BUTTON_TEXT: '立即聯繫我們',
 
-  PROXIO_ABOUT_BUTTON_URL: '/about',
-  PROXIO_ABOUT_BUTTON_TEXT: '关于我',
-
-  // 横向滚动文字
-  PROXIO_BRANDS_ENABLE: true, // 滚动文字
-  PROXIO_BRANDS: [
-    'Web Design',
-    'Logo Design',
-    'Mobile App Design',
-    'Product Design'
-  ],
-
-  PROXIO_FOOTER_SLOGAN: '我们通过技术为品牌和公司创造数字体验。',
-
-  // 页脚三列菜单组
-  // 页脚菜单
+  // ──────────────────────────────────────────
+  // 頁尾區塊 (Footer)
+  // ──────────────────────────────────────────
+  PROXIO_FOOTER_SLOGAN: 'UNDERSTANDING AI. EMPOWERING LEARNING. CONNECTING OPPORTUNITIES.',
   PROXIO_FOOTER_LINKS: [
     {
-      name: '友情链接',
-      menus: [
-        {
-          title: 'Tangly的学习笔记',
-          href: 'https://blog.tangly1024.com'
-        },
-        {
-          title: 'NotionNext',
-          href: 'https://www.tangly1024.com'
-        }
+      id: 1,
+      title: '快速連結',
+      links: [
+        { href: '/about', title: '關於我們' },
+        { href: '/archive', title: '最新文章' },
+        { href: 'mailto:choosehill@gmail.com', title: '聯絡合作' }
       ]
     },
     {
-      name: '开发者',
-      menus: [
-        { title: 'Github', href: 'https://github.com/tangly1024/NotionNext' },
-        {
-          title: '开发帮助',
-          href: 'https://docs.tangly1024.com/article/how-to-develop-with-notion-next'
-        },
-        {
-          title: '功能反馈',
-          href: 'https://github.com/tangly1024/NotionNext/issues/new/choose'
-        },
-        {
-          title: '技术讨论',
-          href: 'https://github.com/tangly1024/NotionNext/discussions'
-        },
-        {
-          title: '关于作者',
-          href: 'https://blog.tangly1024.com/about'
-        }
+      id: 2,
+      title: '服務項目',
+      links: [
+        { href: '/about', title: 'AI 教學與工作坊' },
+        { href: '/about', title: 'AI 內容製作' },
+        { href: '/about', title: '企業 AI 解決方案' },
+        { href: '/about', title: '品牌策略與 AI 行銷' }
       ]
     }
-  ],
-
-  PROXIO_FOOTER_BLOG_LATEST_TITLE: '最新文章',
-
-  PROXIO_FOOTER_PRIVACY_POLICY_TEXT: '隐私政策',
-  PROXIO_FOOTER_PRIVACY_POLICY_URL: '/privacy-policy',
-
-  PROXIO_FOOTER_PRIVACY_LEGAL_NOTICE_TEXT: '法律声明',
-  PROXIO_FOOTER_PRIVACY_LEGAL_NOTICE_URL: '/legacy-notice',
-
-  PROXIO_FOOTER_PRIVACY_TERMS_OF_SERVICE_TEXT: '服务协议',
-  PROXIO_FOOTER_PRIVACY_TERMS_OF_SERVICE_URL: '/terms-of-use',
-
-  // 404页面的提示语
-  PROXIO_404_TITLE: '我们似乎找不到您要找的页面。',
-  PROXIO_404_TEXT: '抱歉！您要查找的页面不存在。可能已经移动或删除。',
-  PROXIO_404_BACK: '回到主页',
-
-  // 页面底部的行动呼吁模块
-  PROXIO_CTA_ENABLE: true,
-  PROXIO_CTA_TITLE: '与我建立联系',
-  PROXIO_CTA_TITLE_2: '让我们立刻启动您的项目',
-  PROXIO_CTA_DESCRIPTION:
-    '访问NotionNext的操作文档，我们提供了详细的教程，帮助你即刻搭建站点',
-  PROXIO_CTA_BUTTON: true, // 是否显示按钮
-  PROXIO_CTA_BUTTON_URL: '/about',
-  PROXIO_CTA_BUTTON_TEXT: '联系我',
-
-  PROXIO_POST_REDIRECT_ENABLE: true, // 默認開啟重定向
-  PROXIO_POST_REDIRECT_URL: 'https://blog.tangly1024.com', // 重定向域名
-  PROXIO_NEWSLETTER: process.env.NEXT_PUBLIC_THEME_PROXIO_NEWSLETTER || false // 是否开启邮件订阅 请先配置mailchimp功能 https://docs.tangly1024.com/article/notion-next-mailchimp
+  ]
 }
+
 export default CONFIG
