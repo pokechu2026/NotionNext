@@ -8,6 +8,12 @@ import SmartLink from '@/components/SmartLink'
  **/
 export const CTA = () => {
   const enable = siteConfig('PROXIO_CTA_ENABLE')
+  const PROXIO_CTA_TITLE_2 = siteConfig('PROXIO_CTA_TITLE_2')
+  const PROXIO_CTA_DESCRIPTION = siteConfig('PROXIO_CTA_DESCRIPTION')
+  const PROXIO_CTA_BUTTON = siteConfig('PROXIO_CTA_BUTTON')
+  const PROXIO_CTA_BUTTON_URL = siteConfig('PROXIO_CTA_BUTTON_URL', '')
+  const PROXIO_CTA_BUTTON_TEXT = siteConfig('PROXIO_CTA_BUTTON_TEXT')
+
   if (!enable) {
     return null
   }
@@ -28,18 +34,18 @@ export const CTA = () => {
                   <h2 className='mb-2.5 text-3xl font-bold dark:text-white md:text-[38px] md:leading-[1.44]'>
 
                     <span className='text-3xl font-normal md:text-[40px]'>
-                      {siteConfig('PROXIO_CTA_TITLE_2')}
+                      {PROXIO_CTA_TITLE_2}
                     </span>
                   </h2>
                   <p className='mx-auto mb-6 max-w-[515px] text-base leading-[1.5] dark:text-white'>
-                    {siteConfig('PROXIO_CTA_DESCRIPTION')}
+                    {PROXIO_CTA_DESCRIPTION}
                   </p>
-                  {siteConfig('PROXIO_CTA_BUTTON') && (
+                  {PROXIO_CTA_BUTTON && (
                     <>
                       <SmartLink
-                        href={siteConfig('PROXIO_CTA_BUTTON_URL', '')}
+                        href={PROXIO_CTA_BUTTON_URL}
                         className='inline-flex items-center justify-center rounded-2xl bg-white px-7 py-[14px] text-center text-base font-medium text-dark shadow-1 transition duration-300 ease-in-out hover:bg-gray-2'>
-                        {siteConfig('PROXIO_CTA_BUTTON_TEXT')}
+                        {PROXIO_CTA_BUTTON_TEXT}
                       </SmartLink>
                     </>
                   )}

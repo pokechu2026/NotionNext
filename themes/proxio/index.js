@@ -35,6 +35,8 @@ import SmartLink from '@/components/SmartLink'
 import { ArticleLock } from './components/ArticleLock'
 import { Banner } from './components/Banner'
 import { CTA } from './components/CTA'
+import { Portfolio } from './components/Portfolio'
+import { PortfolioPage } from './components/PortfolioPage'
 import SearchInput from './components/SearchInput'
 import { SignInForm } from './components/SignInForm'
 import { SignUpForm } from './components/SignUpForm'
@@ -114,6 +116,9 @@ const LayoutIndex = props => {
                 </>
             )}
 
+            {/* 作品集 */}
+            <Portfolio projects={props?.featuredProjects} />
+
             {/* 公告 */}
             {siteConfig('PROXIO_ANNOUNCEMENT_ENABLE', true, CONFIG) && <Announcement
                 post={props?.notice}
@@ -147,6 +152,19 @@ const LayoutIndex = props => {
             {siteConfig('PROXIO_CTA_ENABLE', true, CONFIG) && <CTA />}
 
             {siteConfig('PROXIO_WELCOME_COVER_ENABLE', false, CONFIG) && <LoadingCover />}
+        </>
+    )
+}
+
+/**
+ * 作品集頁面布局
+ * @param {*} props
+ * @returns
+ */
+const LayoutPortfolio = props => {
+    return (
+        <>
+            <PortfolioPage projects={props?.portfolioProjects} />
         </>
     )
 }
@@ -545,6 +563,7 @@ export {
     LayoutCategoryIndex,
     LayoutDashboard,
     LayoutIndex,
+    LayoutPortfolio,
     LayoutPostList,
     LayoutSearch,
     LayoutSignIn,

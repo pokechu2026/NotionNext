@@ -7,6 +7,7 @@ import { generateSitemapXml } from '@/lib/utils/sitemap.xml'
 import { DynamicLayout } from '@/themes/theme'
 import { generateRedirectJson } from '@/lib/utils/redirect'
 import { checkDataFromAlgolia } from '@/lib/plugins/algolia'
+import { fetchFeaturedProjects } from '@/lib/db/notion/fetchPortfolio'
 
 /**
  * 首页布局
@@ -70,6 +71,14 @@ export async function getStaticProps(req) {
   }
 
   // 生成全文索引 - 仅在 yarn build 时执行 && process.env.npm_lifecycle_event === 'build'
+
+  // 取得作品集精選項目
+  try {
+    props.featuredProjects = await fetchFeaturedProjects()
+  } catch (err) {
+    console.error('[Portfolio] Failed to fetch featured projects:', err)
+    props.featuredProjects = []
+  }
 
   delete props.allPages
 

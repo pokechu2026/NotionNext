@@ -39,10 +39,10 @@ export const Team = () => {
                                 className='text-base text-body-color dark:text-dark-6'></p>
                             {/* 数值四宫格 */}
                             <div className='grid grid-cols-2 grid-rows-2 pt-6 gap-4'>
-                                <KeyVal k={siteConfig('PROXIO_ABOUT_KEY_1')} v={siteConfig('PROXIO_ABOUT_VAL_1')} />
-                                <KeyVal k={siteConfig('PROXIO_ABOUT_KEY_2')} v={siteConfig('PROXIO_ABOUT_VAL_2')} />
-                                <KeyVal k={siteConfig('PROXIO_ABOUT_KEY_3')} v={siteConfig('PROXIO_ABOUT_VAL_3')} />
-                                <KeyVal k={siteConfig('PROXIO_ABOUT_KEY_4')} v={siteConfig('PROXIO_ABOUT_VAL_4')} />
+                                <KeyVal k={siteConfig('PROXIO_ABOUT_VAL_1_TEXT')} v={siteConfig('PROXIO_ABOUT_VAL_1')} />
+                                <KeyVal k={siteConfig('PROXIO_ABOUT_VAL_2_TEXT')} v={siteConfig('PROXIO_ABOUT_VAL_2')} />
+                                <KeyVal k={siteConfig('PROXIO_ABOUT_VAL_3_TEXT')} v={siteConfig('PROXIO_ABOUT_VAL_3')} />
+                                <KeyVal k={siteConfig('PROXIO_ABOUT_VAL_4_TEXT')} v={siteConfig('PROXIO_ABOUT_VAL_4')} />
                             </div>
 
                             <div className='mt-8 w-full flex justify-end py-2'>

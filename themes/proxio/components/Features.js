@@ -55,7 +55,7 @@ export const Features = () => {
               <div className='wow fadeInUp group flex-col space-y-2 flex' data-wow-delay='.1s'>
                 <div className='flex w-12 h-12'>
                   <div className='overflow-hidden w-full flex justify-center items-center rounded-xl border border-gray-200 dark:border-[#333333] dark:text-white'>
-                    <i class={siteConfig('PROXIO_FEATURE_2_ICON_CLASS')}></i>
+                    <i className={siteConfig('PROXIO_FEATURE_2_ICON_CLASS')}></i>
                     <LazyImage src={siteConfig('PROXIO_FEATURE_2_ICON_IMG_URL')} className='z-10' />
                   </div>
                 </div>
@@ -72,7 +72,7 @@ export const Features = () => {
               <div className='wow fadeInUp group flex-col space-y-2 flex' data-wow-delay='.1s'>
                 <div className='flex w-12 h-12'>
                   <div className='overflow-hidden w-full flex justify-center items-center rounded-xl border border-gray-200 dark:border-[#333333] dark:text-white'>
-                    <i class={siteConfig('PROXIO_FEATURE_3_ICON_CLASS')}></i>
+                    <i className={siteConfig('PROXIO_FEATURE_3_ICON_CLASS')}></i>
                     <LazyImage src={siteConfig('PROXIO_FEATURE_3_ICON_IMG_URL')} className='z-10' />
                   </div>
                 </div>

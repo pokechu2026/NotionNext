@@ -4,7 +4,7 @@
  * UNDERSTANDING AI. EMPOWERING LEARNING. CONNECTING OPPORTUNITIES.
  */
 const CONFIG = {
-  PROXIO_WELCOME_COVER_ENABLE: true, // ⚠️ 必須為 true 避免白畫面
+  PROXIO_WELCOME_COVER_ENABLE: false, // 關閉歡迎遮罩
   PROXIO_WELCOME_TEXT: '歡迎來到選擇之丘 AI，點擊任意位置進入', // 歡迎語
 
   // ──────────────────────────────────────────
@@ -37,6 +37,14 @@ const CONFIG = {
   PROXIO_BLOG_PLACEHOLDER_IMG_URL_2: '',
   PROXIO_BLOG_PLACEHOLDER_IMG_URL_3: '',
   PROXIO_BLOG_PLACEHOLDER_IMG_URL_4: '',
+
+  // ──────────────────────────────────────────
+  // 作品集區塊（Portfolio）
+  // ──────────────────────────────────────────
+  PROXIO_PORTFOLIO_ENABLE: true,
+  PROXIO_PORTFOLIO_TITLE: '精選作品',
+  PROXIO_PORTFOLIO_TEXT: '跨越影視、VR、AI 與設計的多元專案實績',
+  PROXIO_PORTFOLIO_DB_ID: '8bc026255e6b829d8dd581c91a3fb7d4',
 
   // ──────────────────────────────────────────
   // 公告區塊
@@ -76,22 +84,27 @@ const CONFIG = {
   // ──────────────────────────────────────────
   PROXIO_CAREER_ENABLE: true,
   PROXIO_CAREER_TITLE: '專業歷程',
-  PROXIO_CAREER_TEXT: '深耕影像製作與專案管理十餘載，現專注於科技賦能與 AI 教育傳播。擁有 18 年以上專案管理經驗，橫跨大型展演與 VR 影視製作。',
+  PROXIO_CAREER_TEXT: '近 20 年跨領域專案經驗，從大型活動到 AI 教育',
   PROXIO_CAREERS: [
     {
       title: 'Choosehill 選擇之丘 AI Studio',
-      bio: '創辦人 ✦ AI 教學講師 ✦ 企業顧問',
-      text: '2024 - present'
+      text: '2024 - present',
+      description: '創辦並經營 AI 教育品牌，專為企業、公部門與學校提供客製化 AI 工作坊與演講。具備經濟部 iPAS+ 人工智慧應用企劃師、Google 認證教育家等專業資格，將複雜的生成式 AI 技術轉化為實用的職場應用，累計培育超過 500 位學員。'
+    },
+    {
+      title: '愛的延續公益協會',
+      text: '2024',
+      description: '擔任數位開發主任，主導協會數位轉型計畫。導入 AI 自動化工作流程，建置社工專用 GPT 應用，有效提升非營利組織的行政效率與服務品質。'
     },
     {
       title: 'Funique VR 睿至',
-      bio: 'VR 導演 / 原創製作部總監 ✦ 虛擬實境內容產製',
-      text: '2019 - 2024'
+      text: '2016 - 2024',
+      description: '歷任資深專案經理與 VR 導演，八年間成功交付超過 65 件專案，涵蓋 360 度 VR 影片拍攝、沉浸式體驗設計與企業產品影像製作。作品入圍及獲獎國內外影展逾 10 項，並主導公司從傳統影像轉型至 VR 內容產製的策略規劃。'
     },
     {
-      title: `B'in Live 相信音樂`,
-      bio: '專案經理 ✦ 參與五月天巡迴演唱會及國內外大型展演專案',
-      text: '2016 - 2019'
+      title: '必應創造 / MTV',
+      text: '2014 - 2016',
+      description: '負責大型演唱會統籌與視覺工程，涵蓋動畫製作、VJ 視訊設計等技術執行。參與五月天、田馥甄等知名藝人巡迴演唱會製作，累積豐富的大型活動專案管理與跨團隊協作經驗。'
     }
   ],
 
@@ -103,7 +116,7 @@ const CONFIG = {
   PROXIO_ABOUT_TEXT_1: 'Chase Chao 趙建翔',
   PROXIO_ABOUT_TEXT_2:
     '擁有經濟部 iPAS+ 人工智慧應用企劃師、Google 認證教育家等多項專業資格。我深信 AI 不是取代人的工具，而是賦能每個人的魔法。透過「選擇之丘」，我期望搭建理解 AI 的橋樑，將艱澀技術化為普及應用，為每個人、每個團隊開啟無限可能。',
-  PROXIO_ABOUT_PHOTO_URL: '', // 留空預設使用左側區域的排版
+  PROXIO_ABOUT_PHOTO_URL: '/images/choosehill/chase-photo.webp',
   PROXIO_ABOUT_VAL_1: '18 年+',
   PROXIO_ABOUT_VAL_1_TEXT: '專案管理與整合經驗',
   PROXIO_ABOUT_VAL_2: '100+',

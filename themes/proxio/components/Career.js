@@ -16,15 +16,15 @@ export const Career = () => {
         className='bg-gray-1 pb-8 pt-20 dark:bg-black lg:pb-[70px] lg:pt-[120px]'>
         <div className='container'>
           <div className='wow fadeInUp' data-wow-delay='.2s'>
-            {/* 左侧的文字说明板块 */}
-            <div className='w-full px-4 lg:w-1/2'>
-              <div className='mb-12 max-w-[540px] lg:mb-0'>
-                <span className='px-3 py-0.5 rounded-2xl dark:bg-dark-1 border border-gray-200 dark:border-[#333333] dark:text-white'>
+            {/* 标题与描述 */}
+            <div className='w-full px-4 mb-10'>
+              <div className='flex flex-col space-y-4'>
+                <span className='px-3 py-0.5 rounded-2xl dark:bg-dark-1 border border-gray-200 dark:border-[#333333] dark:text-white w-fit'>
                   {siteConfig('PROXIO_CAREER_TITLE')}
                 </span>
-                <h2
-                  className='mb-10 text-3xl font-semibold leading-relaxed dark:text-dark-6'
-                >{siteConfig('PROXIO_CAREER_TEXT')}</h2>
+                <h2 className='text-2xl font-semibold text-dark dark:text-white'>
+                  {siteConfig('PROXIO_CAREER_TEXT')}
+                </h2>
               </div>
             </div>
 
@@ -43,20 +43,24 @@ export const Career = () => {
 
 
 // 生涯内容
-const CareerItem = ({ title, bio, text }) => {
-  return <div className='w-full border-b mb-6 border-gray-200 dark:border-[#333333] px-4 flex justify-between wow fadeInUp'>
-    <div className='flex item-start flex-col items-start w-full' data-wow-delay='.1s'>
-      <h4 className='mb-3 text-xl text-dark dark:text-white'>
-        <span className='font-bold mr-4'>{title}</span>
-        <span className='text-sm'>{bio}</span>
-      </h4>
-
-    </div>
-    <div className='w-full'>
-      <p className='mb-8 text-body-color dark:text-dark-6 lg:mb-9'>
-        {text}
-      </p>
+const CareerItem = ({ title, bio, text, description }) => {
+  return <div className='w-full border-b mb-8 border-gray-200 dark:border-[#333333] px-4 pb-8 wow fadeInUp' data-wow-delay='.1s'>
+    <div className='flex flex-col md:flex-row md:justify-between gap-6'>
+      {/* 左側：職稱與年份 */}
+      <div className='md:w-2/5 flex-shrink-0'>
+        <h4 className='text-xl font-bold text-dark dark:text-white mb-1'>
+          {title}
+        </h4>
+        <p className='text-sm text-body-color dark:text-dark-6'>
+          {text}
+        </p>
+      </div>
+      {/* 右側：工作介紹與亮點 */}
+      <div className='md:w-3/5'>
+        <p className='text-base text-body-color dark:text-dark-6 leading-relaxed'>
+          {description || bio}
+        </p>
+      </div>
     </div>
   </div>
-
 }
