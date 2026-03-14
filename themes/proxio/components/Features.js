@@ -1,4 +1,5 @@
 import { siteConfig } from '@/lib/config'
+import GradientBadge from './GradientBadge'
 import { SVGDesign } from './svg/SVGDesign'
 import { SVGEssential } from './svg/SVGEssential'
 import { SVGGifts } from './svg/SVGGifts'
@@ -19,9 +20,9 @@ export const Features = () => {
           <div className='-mx-4 flex flex-wrap wow fadeInUp' data-wow-delay='.2s'>
             <div className='w-full px-4'>
               <div className='mx-auto mb-12 lg:mb-[40px]'>
-                <span className='px-3 py-0.5 rounded-2xl dark:bg-dark-1 border border-gray-200 dark:border-[#333333] dark:text-white'>
+                <GradientBadge>
                   {siteConfig('PROXIO_FEATURE_TITLE')}
-                </span>
+                </GradientBadge>
                 <h2 className='my-5 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]'>
                   {siteConfig('PROXIO_FEATURE_TEXT_1')}
                 </h2>

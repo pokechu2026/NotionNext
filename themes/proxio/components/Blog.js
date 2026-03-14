@@ -2,6 +2,7 @@
 import LazyImage from '@/components/LazyImage'
 import { siteConfig } from '@/lib/config'
 import SmartLink from '@/components/SmartLink'
+import GradientBadge from './GradientBadge'
 
 /**
  * 博文列表
@@ -43,9 +44,9 @@ export const Blog = ({ posts }) => {
             data-wow-delay='.2s'>
             <div className='w-full px-4 py-4'>
               <div className='mx-auto max-w-[485px] text-center space-y-4'>
-                <span className='px-3 py-0.5 rounded-2xl mb-2 dark:bg-dark-1 border border-gray-200 dark:border-[#333333] dark:text-white'>
+                <GradientBadge>
                   {PROXIO_BLOG_TITLE}
-                </span>
+                </GradientBadge>
 
                 <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]'>
                   {PROXIO_BLOG_TEXT_1}

@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { siteConfig } from '@/lib/config'
 import SmartLink from '@/components/SmartLink'
+import GradientBadge from './GradientBadge'
 import { useEffect, useRef } from 'react'
 
 /**
@@ -48,9 +49,9 @@ export const Testimonials = () => {
           <div className="flex flex-col space-y-8 w-full md:w-1/2 text-center md:text-left">
 
             <div>
-              <span className='px-3 py-0.5 rounded-2xl dark:bg-dark-1 border border-gray-200 dark:border-[#333333] dark:text-white'>
+              <GradientBadge>
                 {siteConfig('PROXIO_TESTIMONIALS_TITLE')}
-              </span>
+              </GradientBadge>
             </div>
             <h2 className="text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
               {siteConfig('PROXIO_TESTIMONIALS_TEXT_1')}

@@ -68,6 +68,50 @@ module.exports = {
         'screen-3xl': '1440px',
         'screen-4xl': '1560px'
       },
+      keyframes: {
+        aurora: {
+          '0%': {
+            'background-position': '0% 50%',
+            transform: 'rotate(-5deg) scale(0.9)'
+          },
+          '25%': {
+            'background-position': '50% 100%',
+            transform: 'rotate(5deg) scale(1.1)'
+          },
+          '50%': {
+            'background-position': '100% 50%',
+            transform: 'rotate(-3deg) scale(0.95)'
+          },
+          '75%': {
+            'background-position': '50% 0%',
+            transform: 'rotate(3deg) scale(1.05)'
+          },
+          '100%': {
+            'background-position': '0% 50%',
+            transform: 'rotate(-5deg) scale(0.9)'
+          }
+        },
+        gradient: {
+          to: {
+            'background-position': 'var(--bg-size, 300%) 0'
+          }
+        },
+        'shiny-text': {
+          '0%, 90%, 100%': {
+            'background-size': 'var(--shiny-width) 100%',
+            'background-position': 'calc(-100% - var(--shiny-width)) 0'
+          },
+          '30%, 60%': {
+            'background-size': 'var(--shiny-width) 100%',
+            'background-position': 'calc(100% + var(--shiny-width)) 0'
+          }
+        }
+      },
+      animation: {
+        aurora: 'aurora 8s ease-in-out infinite alternate',
+        gradient: 'gradient 8s linear infinite',
+        'shiny-text': 'shiny-text 8s infinite'
+      },
       boxShadow: {
         input: '0px 7px 20px rgba(0, 0, 0, 0.03)',
         form: '0px 1px 55px -11px rgba(0, 0, 0, 0.01)',

@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { siteConfig } from '@/lib/config'
 import SmartLink from '@/components/SmartLink'
+import GradientBadge from './GradientBadge'
 
 /**
  * 首页的生涯模块
@@ -19,9 +20,9 @@ export const Career = () => {
             {/* 标题与描述 */}
             <div className='w-full px-4 mb-10'>
               <div className='flex flex-col space-y-4'>
-                <span className='px-3 py-0.5 rounded-2xl dark:bg-dark-1 border border-gray-200 dark:border-[#333333] dark:text-white w-fit'>
+                <GradientBadge>
                   {siteConfig('PROXIO_CAREER_TITLE')}
-                </span>
+                </GradientBadge>
                 <h2 className='text-2xl font-semibold text-dark dark:text-white'>
                   {siteConfig('PROXIO_CAREER_TEXT')}
                 </h2>

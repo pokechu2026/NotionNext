@@ -2,6 +2,7 @@
 import { siteConfig } from '@/lib/config'
 import LazyImage from '@/components/LazyImage'
 import SmartLink from '@/components/SmartLink'
+import GradientBadge from './GradientBadge'
 /**
  * 作者团队
  * @returns 
@@ -25,9 +26,9 @@ export const Team = () => {
                         {/* 右侧文字说明 */}
                         <div className='flex flex-col px-4 space-y-4 mx-auto justify-between max-w-[485px]'>
                             <div>
-                                <span className='px-3 py-0.5 mb-2 dark:bg-dark-1 rounded-2xl border border-gray-200 dark:border-[#333333] dark:text-white'>
+                                <GradientBadge>
                                     {siteConfig('PROXIO_ABOUT_TITLE')}
-                                </span>
+                                </GradientBadge>
                             </div>
                             <h2 className='mb-3 text-xl md:text-3xl leading-[1.2] dark:text-white '>
                                 {siteConfig('PROXIO_ABOUT_TEXT_1')}

@@ -3,6 +3,9 @@ import LazyImage from '@/components/LazyImage'
 import { siteConfig } from '@/lib/config'
 import CONFIG from '../config'
 import SmartLink from '@/components/SmartLink'
+import AnimatedShinyText from './AnimatedShinyText'
+import AuroraText from './AuroraText'
+import SparklesText from './SparklesText'
 
 /**
  * 英雄大图区块
@@ -61,7 +64,24 @@ export const Hero = props => {
               data-wow-delay='0.5s'>
               {/* 主标题 */}
               <h1 className='mb-6 text-3xl font-bold leading-snug sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]'>
-                {siteConfig('PROXIO_HERO_TITLE_1', null, config)}
+                <AnimatedShinyText shimmerWidth={200}>
+                  {(() => {
+                    const title = siteConfig('PROXIO_HERO_TITLE_1', null, config) || ''
+                    // 將「AI」和「發光發熱」包裹成極光效果
+                    const parts = title.split(/(AI|發光發熱)/)
+                    return parts.map((part, i) =>
+                      part === 'AI' || part === '發光發熱' ? (
+                        <SparklesText key={i} sparklesCount={6} colors={{ first: '#9E7AFF', second: '#FE8BBB' }}>
+                          <AuroraText colors={['#FF0080', '#7928CA', '#0070F3', '#38bdf8']} speed={1.2}>
+                            {part}
+                          </AuroraText>
+                        </SparklesText>
+                      ) : (
+                        <span key={i}>{part}</span>
+                      )
+                    )
+                  })()}
+                </AnimatedShinyText>
               </h1>
               {/* 次标题 */}
               <p className='mx-auto mb-9 max-w-[600px] text-base font-medium  sm:text-lg sm:leading-[1.44]'>
@@ -73,8 +93,29 @@ export const Hero = props => {
                   <li>
                     <SmartLink
                       href={siteConfig('PROXIO_HERO_BUTTON_1_URL', '')}
-                      className='inline-flex items-center justify-center rounded-2xl bg-white px-7 py-[14px] text-center text-base font-medium text-dark shadow-1 transition duration-300 ease-in-out hover:bg-gray-2'>
-                      {PROXIO_HERO_BUTTON_1_TEXT}
+                      className='group relative inline-flex items-center justify-center rounded-full p-[1.5px] overflow-hidden'>
+                      {/* 漸層邊框 */}
+                      <span
+                        style={{ '--bg-size': '300%', backgroundSize: '300% 100%', backgroundImage: 'linear-gradient(to right, #ffaa40, #9c40ff, #ffaa40)' }}
+                        className='animate-gradient absolute inset-0 rounded-full'
+                      />
+                      {/* 內層黑底 */}
+                      <span className='relative z-10 inline-flex items-center rounded-full bg-black px-7 py-3'>
+                        <span
+                          style={{
+                            '--bg-size': '300%',
+                            backgroundSize: '300% 100%',
+                            backgroundImage: 'linear-gradient(to right, #ffaa40, #9c40ff, #ffaa40)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text'
+                          }}
+                          className='animate-gradient inline text-base font-medium'
+                        >
+                          {PROXIO_HERO_BUTTON_1_TEXT}
+                        </span>
+                        <span className='ml-2 text-gray-400 transition-transform duration-200 group-hover:translate-x-1'>›</span>
+                      </span>
                     </SmartLink>
                   </li>
                 )}
@@ -82,11 +123,29 @@ export const Hero = props => {
                   <li>
                     <SmartLink
                       href={siteConfig('PROXIO_HERO_BUTTON_2_URL', '')}
-                      className='inline-flex items-center justify-center rounded-2xl bg-white px-7 py-[14px] text-center text-base font-medium text-dark shadow-1 transition duration-300 ease-in-out hover:bg-gray-2'>
-                      {PROXIO_HERO_BUTTON_2_ICON ? (
-                        <img className='mr-4 w-5' src={PROXIO_HERO_BUTTON_2_ICON} alt="icon" />
-                      ) : null}
-                      {PROXIO_HERO_BUTTON_2_TEXT}
+                      className='group relative inline-flex items-center justify-center rounded-full p-[1.5px] overflow-hidden'>
+                      {/* 漸層邊框 */}
+                      <span
+                        style={{ '--bg-size': '300%', backgroundSize: '300% 100%', backgroundImage: 'linear-gradient(to right, #ffaa40, #9c40ff, #ffaa40)' }}
+                        className='animate-gradient absolute inset-0 rounded-full'
+                      />
+                      {/* 內層黑底 */}
+                      <span className='relative z-10 inline-flex items-center rounded-full bg-black px-7 py-3'>
+                        <span
+                          style={{
+                            '--bg-size': '300%',
+                            backgroundSize: '300% 100%',
+                            backgroundImage: 'linear-gradient(to right, #ffaa40, #9c40ff, #ffaa40)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text'
+                          }}
+                          className='animate-gradient inline text-base font-medium'
+                        >
+                          {PROXIO_HERO_BUTTON_2_TEXT}
+                        </span>
+                        <span className='ml-2 text-gray-400 transition-transform duration-200 group-hover:translate-x-1'>›</span>
+                      </span>
                     </SmartLink>
                   </li>
                 )}

@@ -1,5 +1,6 @@
 import { siteConfig } from '@/lib/config'
 import { useState } from 'react'
+import GradientBadge from './GradientBadge'
 import { SVGCircleBG } from './svg/SVGCircleBG'
 
 /**
@@ -24,9 +25,9 @@ export const FAQ = () => {
             <div className="w-full px-4">
               <div className="mx-auto mb-[60px] max-w-[520px] text-center flex flex-col space-y-4">
                 <div>
-                  <span className='px-3 py-0.5 rounded-2xl dark:bg-dark-1 border border-gray-200 dark:border-[#333333] dark:text-white'>
+                  <GradientBadge>
                     {siteConfig('PROXIO_FAQ_TITLE')}
-                  </span>
+                  </GradientBadge>
                 </div>
                 <h2 className="mb-3 text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
                   {siteConfig('PROXIO_FAQ_TEXT_1')}
