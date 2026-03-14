@@ -17,7 +17,7 @@ const CONFIG = {
   // 英雄區按鈕
   PROXIO_HERO_BUTTON_1_TEXT: '探索服務',
   PROXIO_HERO_BUTTON_1_URL: '/about',
-  PROXIO_HERO_BUTTON_2_TEXT: '立即聯繫',
+  PROXIO_HERO_BUTTON_2_TEXT: '',
   PROXIO_HERO_BUTTON_2_URL: 'mailto:choosehill@gmail.com',
   PROXIO_HERO_BUTTON_2_ICON: '', // 可填入 email icon 路徑
 
@@ -31,7 +31,7 @@ const CONFIG = {
   PROXIO_BLOG_ENABLE: true,
   PROXIO_BLOG_TITLE: '最新內容',
   PROXIO_BLOG_COUNT: 4,
-  PROXIO_BLOG_TEXT_1: '最新 AI 應用教學與案例分享',
+  PROXIO_BLOG_TEXT_1: '最新 AI 應用教學案例',
 
   PROXIO_BLOG_PLACEHOLDER_IMG_URL_1: '',
   PROXIO_BLOG_PLACEHOLDER_IMG_URL_2: '',
@@ -152,28 +152,28 @@ const CONFIG = {
     {
       PROXIO_TESTIMONIALS_ITEM_TEXT: '一直覺得生成式 AI 門檻很高，但老師的課程設計非常接地氣！實機操作搭配實際工作情境，讓我上完課隔天就能用 AI 提升發想提案的效率。',
       PROXIO_TESTIMONIALS_ITEM_URL: '#',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/proxio/author-01.png',
+      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/choosehill/t01.png',
       PROXIO_TESTIMONIALS_ITEM_NICKNAME: '企業內訓學員',
       PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '行銷企劃'
     },
     {
       PROXIO_TESTIMONIALS_ITEM_TEXT: '顧問擁有十幾年的跨界專案經驗，能敏銳抓出我們團隊在流程上的痛點，並提供符合成本效益的 AI 解決方案，溝通起來非常順暢且專業。',
       PROXIO_TESTIMONIALS_ITEM_URL: '#',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/proxio/author-02.png',
+      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/choosehill/t02.png',
       PROXIO_TESTIMONIALS_ITEM_NICKNAME: '專案決策主管',
       PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '科技新創公司'
     },
     {
       PROXIO_TESTIMONIALS_ITEM_TEXT: '結合 AI 輔助與精湛的 VR 拍攝技術，產出的影像質感遠超預期。導演對節奏的掌握和敘事邏輯都相當精準，合作體驗極佳。',
       PROXIO_TESTIMONIALS_ITEM_URL: '#',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/proxio/author-03.png',
+      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/choosehill/t03.png',
       PROXIO_TESTIMONIALS_ITEM_NICKNAME: '品牌總監',
       PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '生活品牌'
     },
     {
       PROXIO_TESTIMONIALS_ITEM_TEXT: '在政府標案的準備過程中，能提供條理分明且具前瞻性的科技應用企劃，是專案能順利推進並拿下標案的關鍵助力。',
       PROXIO_TESTIMONIALS_ITEM_URL: '#',
-      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/proxio/author-01.png',
+      PROXIO_TESTIMONIALS_ITEM_AVATAR: '/images/choosehill/t04.png',
       PROXIO_TESTIMONIALS_ITEM_NICKNAME: '合作夥伴',
       PROXIO_TESTIMONIALS_ITEM_DESCRIPTION: '公關活動公司'
     }
