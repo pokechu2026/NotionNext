@@ -179,6 +179,39 @@ const LayoutSlug = props => {
 
     // 如果 是 /article/[slug] 的文章路径则視情況进行重定向到另一个域名
     const router = useRouter()
+
+    // Notion 内容滚动渐入效果
+    useEffect(() => {
+        if (lock || !post) return
+        const wrapper = document.getElementById('article-wrapper')
+        if (!wrapper) return
+
+        // 选取 Notion 内容中的主要区块元素
+        const blocks = wrapper.querySelectorAll(
+            '.notion-h, .notion-text, .notion-asset-wrapper, .notion-callout, .notion-quote, .notion-collection, .notion-bookmark, .notion-column_list, .notion-table, .notion-list, .notion-to_do, .notion-toggle, .notion-bulleted_list, .notion-numbered_list, .notion-image, .notion-video, .notion-embed, .notion-header'
+        )
+
+        blocks.forEach(el => {
+            el.classList.add('scroll-reveal')
+        })
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('scroll-reveal-visible')
+                        observer.unobserve(entry.target)
+                    }
+                })
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        )
+
+        blocks.forEach(el => observer.observe(el))
+
+        return () => observer.disconnect()
+    }, [post, lock])
+
     if (
         !post &&
         siteConfig('PROXIO_POST_REDIRECT_ENABLE') &&
