@@ -37,6 +37,7 @@ import { Banner } from './components/Banner'
 import { CTA } from './components/CTA'
 import { Portfolio } from './components/Portfolio'
 import { PortfolioPage } from './components/PortfolioPage'
+import { PortfolioDetail } from './components/PortfolioDetail'
 import SearchInput from './components/SearchInput'
 import { SignInForm } from './components/SignInForm'
 import { SignUpForm } from './components/SignUpForm'
@@ -165,6 +166,19 @@ const LayoutPortfolio = props => {
     return (
         <>
             <PortfolioPage projects={props?.portfolioProjects} />
+        </>
+    )
+}
+
+/**
+ * 單一專案詳細頁布局
+ * @param {*} props
+ * @returns
+ */
+const LayoutPortfolioDetail = props => {
+    return (
+        <>
+            <PortfolioDetail project={props?.project} blocks={props?.blocks} />
         </>
     )
 }
@@ -597,6 +611,7 @@ export {
     LayoutDashboard,
     LayoutIndex,
     LayoutPortfolio,
+    LayoutPortfolioDetail,
     LayoutPostList,
     LayoutSearch,
     LayoutSignIn,

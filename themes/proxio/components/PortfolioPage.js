@@ -1,6 +1,7 @@
 'use client'
 import { useState, useMemo } from 'react'
 import LazyImage from '@/components/LazyImage'
+import SmartLink from '@/components/SmartLink'
 
 /**
  * 作品集完整頁面元件（/portfolio）
@@ -77,7 +78,8 @@ export const PortfolioPage = ({ projects = [] }) => {
         <div className='-mx-4 flex flex-wrap'>
           {filtered.map((project, index) => (
             <div key={project.id || index} className='w-full px-4 md:w-1/2 lg:w-1/3'>
-              <div className='wow fadeInUp group mb-8 rounded-xl border border-gray-200 dark:border-[#333333] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-gray-800'
+              <SmartLink href={`/portfolio/${project.id.replace(/-/g, '')}`} className='block'>
+              <div className='wow fadeInUp group mb-8 rounded-xl border border-gray-200 dark:border-[#333333] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-gray-800 cursor-pointer'
                 data-wow-delay={`${0.1 + (index % 6) * 0.05}s`}>
                 {/* 封面圖 */}
                 {project.cover && (
@@ -127,6 +129,7 @@ export const PortfolioPage = ({ projects = [] }) => {
                   )}
                 </div>
               </div>
+              </SmartLink>
             </div>
           ))}
         </div>

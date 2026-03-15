@@ -41,7 +41,7 @@ export const Portfolio = ({ projects = [] }) => {
         <div className='-mx-4 flex flex-wrap'>
           {projects.map((project, index) => (
             <div key={project.id || index} className='w-full px-4 md:w-1/2 lg:w-1/3'>
-              <SmartLink href={project.url} target='_blank' className='block'>
+              <SmartLink href={`/portfolio/${project.id.replace(/-/g, '')}`} className='block'>
               <div
                 className='wow fadeInUp group mb-10 rounded-xl border border-gray-200 dark:border-[#333333] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-gray-800 cursor-pointer'
                 data-wow-delay={`${0.1 + index * 0.05}s`}>
