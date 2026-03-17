@@ -46,6 +46,7 @@ import Lenis from '@/components/Lenis'
 import Announcement from './components/Announcement'
 import CursorDot from '@/components/CursorDot'
 import LoadingCover from './components/LoadingCover'
+import { ShaderAnimation } from './components/ShaderAnimation'
 
 /**
  * 布局框架
@@ -66,17 +67,36 @@ const LayoutBase = props => {
     return (
         <div
             id='theme-proxio'
-            className={`${siteConfig('FONT_STYLE')} min-h-screen flex flex-col dark:bg-dark scroll-smooth`}>
+            className={`${siteConfig('FONT_STYLE')} min-h-screen flex flex-col scroll-smooth`}>
             <Style />
-            {/* 页头 */}
-            <Header {...props} />
 
-            <div id='main-wrapper' className='grow'>
-                {children}
+            {/* ── 全頁 Shader 光暈背景（fixed z-0，永遠在最底層）── */}
+            {CONFIG.PROXIO_HERO_SHADER_ENABLE && (
+                <>
+                    {/* WebGL canvas */}
+                    <div className='fixed inset-0 pointer-events-none' style={{ zIndex: 0 }}>
+                        <ShaderAnimation />
+                    </div>
+                    {/* 暗化遮罩（z-2），比 canvas 高但低於頁面內容 */}
+                    <div
+                        className='fixed inset-0 pointer-events-none'
+                        style={{ zIndex: 2, background: 'rgba(0,0,0,0.58)', backdropFilter: 'blur(1px)' }}
+                    />
+                </>
+            )}
+
+            {/* 頁面所有內容層（z-10，高於遮罩）*/}
+            <div className='relative flex flex-col min-h-screen' style={{ zIndex: 10 }}>
+                {/* 页头 */}
+                <Header {...props} />
+
+                <div id='main-wrapper' className='grow'>
+                    {children}
+                </div>
+
+                {/* 页脚 */}
+                <Footer {...props} />
             </div>
-
-            {/* 页脚 */}
-            <Footer {...props} />
 
             {/* 悬浮按钮 */}
             <BackToTopButton />
