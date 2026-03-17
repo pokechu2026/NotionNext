@@ -21,7 +21,8 @@ const CONFIG = {
   PROXIO_HERO_BUTTON_2_URL: 'mailto:choosehill@gmail.com',
   PROXIO_HERO_BUTTON_2_ICON: '', // 可填入 email icon 路徑
 
-  // 英雄區背景圖
+  // 英雄區背景
+  PROXIO_HERO_SHADER_ENABLE: true, // true = Shader 流光動畫, false = 靜態圖片
   PROXIO_HERO_BANNER_IMAGE: '',
   PROXIO_HERO_BANNER_IFRAME_URL: '',
 

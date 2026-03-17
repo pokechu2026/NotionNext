@@ -6,6 +6,7 @@ import SmartLink from '@/components/SmartLink'
 import AnimatedShinyText from './AnimatedShinyText'
 import AuroraText from './AuroraText'
 import SparklesText from './SparklesText'
+import { ShaderAnimation } from './ShaderAnimation'
 
 /**
  * 英雄大图区块
@@ -16,6 +17,7 @@ export const Hero = props => {
   const bannerImage =
     siteConfig('PROXIO_HERO_BANNER_IMAGE', null, config) || pageCover
   const bannerIframe = siteConfig('PROXIO_HERO_BANNER_IFRAME_URL', null, config)
+  const shaderEnabled = CONFIG.PROXIO_HERO_SHADER_ENABLE ?? false
   const PROXIO_HERO_BUTTON_1_TEXT = siteConfig(
     'PROXIO_HERO_BUTTON_1_TEXT',
     null,
@@ -35,18 +37,21 @@ export const Hero = props => {
     <>
       {/* <!-- ====== Hero Section Start --> */}
       <div id='home' className='h-screen relative overflow-hidden bg-primary '>
-        {/* 横幅图片 */}
-        {!bannerIframe && bannerImage && (
+        {/* 背景層：Shader 流光 > iframe 嵌入 > 靜態圖片 */}
+        {shaderEnabled ? (
+          <ShaderAnimation fallbackImage={bannerImage} />
+        ) : bannerIframe ? (
+          <iframe
+            src={bannerIframe}
+            className='w-full absolute h-screen left-0 top-0 pointer-events-none'
+          />
+        ) : bannerImage ? (
           <LazyImage
             priority
             className='w-full object-cover absolute h-screen left-0 top-0 pointer-events-none'
             src={bannerImage}
           />
-        )}
-        <iframe
-          src={bannerIframe}
-          className='w-full absolute h-screen left-0 top-0 pointer-events-none'
-        />
+        ) : null}
         {/* 阴影遮罩 */}
         <div className='h-1/3 w-full absolute left-0 bottom-0 z-10'>
           <div
