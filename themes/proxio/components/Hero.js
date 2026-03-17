@@ -6,11 +6,10 @@ import SmartLink from '@/components/SmartLink'
 import AnimatedShinyText from './AnimatedShinyText'
 import AuroraText from './AuroraText'
 import SparklesText from './SparklesText'
+import { ShaderAnimation } from './ShaderAnimation'
 
 /**
  * 英雄大图区块
- * 當 PROXIO_HERO_SHADER_ENABLE=true 時，背景由 LayoutBase 的全頁 ShaderAnimation 提供
- * 當關閉時，退回 iframe / 靜態圖片
  */
 export const Hero = props => {
   const config = props?.NOTION_CONFIG || CONFIG
@@ -37,22 +36,29 @@ export const Hero = props => {
   return (
     <>
       {/* <!-- ====== Hero Section Start --> */}
-      {/* Shader 模式下背景透明，由 LayoutBase 的 fixed ShaderAnimation 顯示 */}
-      <div id='home' className='h-screen relative overflow-hidden'>
-        {/* Shader 關閉時才渲染局部背景 */}
-        {!shaderEnabled && bannerIframe && (
+      <div id='home' className='h-screen relative overflow-hidden bg-primary '>
+        {/* 背景層：Shader 流光 > iframe 嵌入 > 靜態圖片 */}
+        {shaderEnabled ? (
+          <ShaderAnimation fallbackImage={bannerImage} />
+        ) : bannerIframe ? (
           <iframe
             src={bannerIframe}
             className='w-full absolute h-screen left-0 top-0 pointer-events-none'
           />
-        )}
-        {!shaderEnabled && !bannerIframe && bannerImage && (
+        ) : bannerImage ? (
           <LazyImage
             priority
             className='w-full object-cover absolute h-screen left-0 top-0 pointer-events-none'
             src={bannerImage}
           />
-        )}
+        ) : null}
+        {/* 阴影遮罩 */}
+        <div className='h-1/3 w-full absolute left-0 bottom-0 z-10'>
+          <div
+            className='h-full w-full absolute group-hover:opacity-100 transition-all duration-1000 
+                    bg-gradient-to-b from-transparent to-white dark:to-black'
+          />
+        </div>
       </div>
       {/* 文字标题等 */}
       <div className='w-full pb-15 dark:text-white'>
