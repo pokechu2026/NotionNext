@@ -17,6 +17,7 @@ export const Hero = props => {
   const bannerImage =
     siteConfig('PROXIO_HERO_BANNER_IMAGE', null, config) || pageCover
   const bannerIframe = siteConfig('PROXIO_HERO_BANNER_IFRAME_URL', null, config)
+  const videoUrl = siteConfig('PROXIO_HERO_VIDEO_URL', null, config)
   const shaderEnabled = CONFIG.PROXIO_HERO_SHADER_ENABLE ?? false
   const PROXIO_HERO_BUTTON_1_TEXT = siteConfig(
     'PROXIO_HERO_BUTTON_1_TEXT',
@@ -37,8 +38,18 @@ export const Hero = props => {
     <>
       {/* <!-- ====== Hero Section Start --> */}
       <div id='home' className='h-screen relative overflow-hidden bg-primary '>
-        {/* 背景層：Shader 流光 > iframe 嵌入 > 靜態圖片 */}
-        {shaderEnabled ? (
+        {/* 背景層：影片 > Shader 流光 > iframe 嵌入 > 靜態圖片 */}
+        {videoUrl ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className='absolute inset-0 w-full h-full object-cover z-0'
+          >
+            <source src={videoUrl} type='video/mp4' />
+          </video>
+        ) : shaderEnabled ? (
           <ShaderAnimation fallbackImage={bannerImage} />
         ) : bannerIframe ? (
           <iframe

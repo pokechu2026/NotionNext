@@ -22,7 +22,9 @@ const CONFIG = {
   PROXIO_HERO_BUTTON_2_ICON: '', // 可填入 email icon 路徑
 
   // 英雄區背景
-  PROXIO_HERO_SHADER_ENABLE: true, // true = Shader 流光動畫, false = 靜態圖片
+  PROXIO_HERO_VIDEO_URL:
+    'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4',
+  PROXIO_HERO_SHADER_ENABLE: false, // video 優先；若無 video URL 且此為 true 則用 Shader
   PROXIO_HERO_BANNER_IMAGE: '',
   PROXIO_HERO_BANNER_IFRAME_URL: '',
 
