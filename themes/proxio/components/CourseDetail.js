@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import SmartLink from '@/components/SmartLink'
-import LazyImage from '@/components/LazyImage'
+import NotionImage from '@/components/NotionImage'
 
 /**
  * Notion block → HTML 渲染器
@@ -113,11 +113,11 @@ function renderBlock(block, depth = 0) {
       return (
         <figure key={id} className='mb-6'>
           {src && (
-            <img
+            <NotionImage
               src={src}
               alt={caption || 'course image'}
+              size='content'
               className='w-full rounded-lg'
-              loading='lazy'
             />
           )}
           {caption && (

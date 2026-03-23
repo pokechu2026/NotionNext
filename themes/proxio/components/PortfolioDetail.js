@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import SmartLink from '@/components/SmartLink'
-import LazyImage from '@/components/LazyImage'
+import NotionImage from '@/components/NotionImage'
 
 /**
  * Notion block → HTML 渲染器
@@ -108,11 +108,11 @@ function renderBlock(block, depth = 0) {
       return (
         <figure key={id} className='mb-6'>
           {src && (
-            <img
+            <NotionImage
               src={src}
               alt={caption || 'project image'}
+              size='content'
               className='w-full rounded-lg'
-              loading='lazy'
             />
           )}
           {caption && (
@@ -305,9 +305,10 @@ export const PortfolioDetail = ({ project, blocks = [] }) => {
         {/* 封面圖 */}
         {project.cover && (
           <div className='mb-10 overflow-hidden rounded-xl'>
-            <LazyImage
+            <NotionImage
               src={project.cover}
               alt={project.title}
+              size='banner'
               className='w-full object-cover'
             />
           </div>

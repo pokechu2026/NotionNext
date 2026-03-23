@@ -1,7 +1,7 @@
 import { siteConfig } from '@/lib/config'
 import CONFIG from '../config'
 import SmartLink from '@/components/SmartLink'
-import LazyImage from '@/components/LazyImage'
+import NotionImage from '@/components/NotionImage'
 import GradientBadge from './GradientBadge'
 
 /**
@@ -45,16 +45,15 @@ export const Portfolio = ({ projects = [] }) => {
               <div
                 className='wow fadeInUp group mb-10 rounded-xl border border-gray-200 dark:border-[#333333] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-gray-800 cursor-pointer'
                 data-wow-delay={`${0.1 + index * 0.05}s`}>
-                {/* 封面圖 */}
-                {project.cover && (
-                  <div className='h-48 overflow-hidden'>
-                    <LazyImage
-                      src={project.cover}
-                      alt={project.title}
-                      className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-105'
-                    />
-                  </div>
-                )}
+                {/* 封面圖 - 使用 Next.js Image 自動壓縮 */}
+                <div className='h-48 overflow-hidden bg-gray-100 dark:bg-dark-2'>
+                  <NotionImage
+                    src={project.cover}
+                    alt={project.title}
+                    size='thumbnail'
+                    className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-105'
+                  />
+                </div>
 
                 {/* 卡片內容 */}
                 <div className='p-5'>

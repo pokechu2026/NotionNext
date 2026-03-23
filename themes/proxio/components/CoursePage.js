@@ -1,6 +1,6 @@
 'use client'
 import { useState, useMemo } from 'react'
-import LazyImage from '@/components/LazyImage'
+import NotionImage from '@/components/NotionImage'
 import SmartLink from '@/components/SmartLink'
 
 /**
@@ -57,9 +57,10 @@ export const CoursePage = ({
       {/* ====== 封面橫幅 ====== */}
       {bannerUrl && (
         <div className='w-full'>
-          <LazyImage
+          <NotionImage
             src={bannerUrl}
             alt='課程總覽'
+            size='banner'
             className='w-full h-auto object-cover'
             priority
           />
@@ -122,20 +123,15 @@ export const CoursePage = ({
                   <div
                     className='wow fadeInUp group mb-8 rounded-xl border border-gray-200 dark:border-[#333333] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-gray-800 cursor-pointer'
                     data-wow-delay={`${0.1 + (index % 6) * 0.05}s`}>
-                    {/* 縮圖 */}
-                    {course.cover ? (
-                      <div className='h-48 overflow-hidden bg-gray-100 dark:bg-dark-2'>
-                        <LazyImage
-                          src={course.cover}
-                          alt={course.title}
-                          className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-105'
-                        />
-                      </div>
-                    ) : (
-                      <div className='h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center'>
-                        <span className='text-4xl'>📚</span>
-                      </div>
-                    )}
+                    {/* 縮圖 - 使用 Next.js Image 自動壓縮 */}
+                    <div className='h-48 overflow-hidden bg-gray-100 dark:bg-dark-2'>
+                      <NotionImage
+                        src={course.cover}
+                        alt={course.title}
+                        size='thumbnail'
+                        className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-105'
+                      />
+                    </div>
 
                     <div className='p-5'>
                       <h3 className='mb-3 text-lg font-bold text-dark dark:text-white leading-snug'>
@@ -320,11 +316,12 @@ const NotionBlock = ({ block }) => {
       if (!url) return null
       return (
         <figure className='my-4'>
-          <LazyImage
+          <NotionImage
             src={url}
             alt={
               block.image?.caption?.map(t => t.plain_text).join('') || ''
             }
+            size='content'
             className='w-full rounded-lg'
           />
           {block.image?.caption?.length > 0 && (

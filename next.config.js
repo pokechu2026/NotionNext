@@ -129,7 +129,8 @@ const nextConfig = {
       'source.unsplash.com',
       'p1.qhimg.com',
       'webmention.io',
-      'ko-fi.com'
+      'ko-fi.com',
+      'prod-files-secure.s3.us-west-2.amazonaws.com'
     ],
     // 图片加载器优化
     loader: 'default',
