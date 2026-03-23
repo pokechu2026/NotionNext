@@ -48,6 +48,7 @@ export default function NotionImage({
 
   // 判斷是否為可以由 Next.js 優化的 URL
   const isOptimizable =
+    src.startsWith('/api/notion-image') ||
     src.includes('prod-files-secure') ||
     src.includes('notion.so') ||
     src.includes('unsplash.com')
