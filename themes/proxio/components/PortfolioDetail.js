@@ -1,4 +1,5 @@
 'use client'
+import { useEffect } from 'react'
 import SmartLink from '@/components/SmartLink'
 import LazyImage from '@/components/LazyImage'
 
@@ -244,6 +245,11 @@ function renderRichText(richTextArr) {
  * 專案詳細頁元件
  */
 export const PortfolioDetail = ({ project, blocks = [] }) => {
+  // 進入頁面時滾動到頂部
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   if (!project) return null
 
   // 將連續的 list item 包成 ul/ol

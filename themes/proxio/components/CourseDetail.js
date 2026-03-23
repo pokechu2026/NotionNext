@@ -1,4 +1,5 @@
 'use client'
+import { useEffect } from 'react'
 import SmartLink from '@/components/SmartLink'
 import LazyImage from '@/components/LazyImage'
 
@@ -264,6 +265,11 @@ const difficultyColor = level => {
  * 課程詳細頁元件
  */
 export const CourseDetail = ({ course, blocks = [] }) => {
+  // 進入頁面時滾動到頂部
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   if (!course) return null
 
   // 將連續的 list item 包成 ul/ol
