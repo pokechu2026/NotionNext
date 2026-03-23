@@ -48,7 +48,7 @@ const SEO = props => {
   }
   if (meta) {
     url = `${url}/${meta.slug}`
-    image = meta.image || '/bg_image.jpg'
+    image = meta.image || '/images/choosehill/chase-photo.webp'
   }
   const TITLE = siteConfig('TITLE')
   const title = meta?.title || TITLE
@@ -295,7 +295,7 @@ const getSEOMeta = (props, router, locale) => {
       return {
         title: `${siteInfo?.title} | ${siteInfo?.description}`,
         description: `${siteInfo?.description}`,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         slug: '',
         type: 'website'
       }
@@ -303,7 +303,7 @@ const getSEOMeta = (props, router, locale) => {
       return {
         title: `${locale.NAV.ARCHIVE} | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         slug: 'archive',
         type: 'website'
       }
@@ -311,7 +311,7 @@ const getSEOMeta = (props, router, locale) => {
       return {
         title: `${page} | Page | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         slug: 'page/' + page,
         type: 'website'
       }
@@ -338,7 +338,7 @@ const getSEOMeta = (props, router, locale) => {
         title: `${category} | ${locale.COMMON.CATEGORY} | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
         slug: 'category/' + category,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         type: 'website'
       }
     case '/category/[category]/page/[page]':
@@ -346,7 +346,7 @@ const getSEOMeta = (props, router, locale) => {
         title: `${category} | ${locale.COMMON.CATEGORY} | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
         slug: 'category/' + category,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         type: 'website'
       }
     case '/tag/[tag]':
@@ -354,7 +354,7 @@ const getSEOMeta = (props, router, locale) => {
       return {
         title: `${tag} | ${locale.COMMON.TAGS} | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         slug: 'tag/' + tag,
         type: 'website'
       }
@@ -362,7 +362,7 @@ const getSEOMeta = (props, router, locale) => {
       return {
         title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         slug: 'search',
         type: 'website'
       }
@@ -371,20 +371,20 @@ const getSEOMeta = (props, router, locale) => {
       return {
         title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${siteInfo?.title}`,
         description: TITLE,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         slug: 'search/' + (keyword || ''),
         type: 'website'
       }
     case '/404':
       return {
         title: `${siteInfo?.title} | ${locale.NAV.PAGE_NOT_FOUND}`,
-        image: `${siteInfo?.pageCover}`
+        image: '/images/choosehill/chase-photo.webp'
       }
     case '/tag':
       return {
         title: `${locale.COMMON.TAGS} | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         slug: 'tag',
         type: 'website'
       }
@@ -392,7 +392,7 @@ const getSEOMeta = (props, router, locale) => {
       return {
         title: `${locale.COMMON.CATEGORY} | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
-        image: `${siteInfo?.pageCover}`,
+        image: '/images/choosehill/chase-photo.webp',
         slug: 'category',
         type: 'website'
       }
@@ -404,7 +404,7 @@ const getSEOMeta = (props, router, locale) => {
         description: post?.summary,
         type: post?.type,
         slug: post?.slug,
-        image: post?.pageCoverThumbnail || `${siteInfo?.pageCover}`,
+        image: post?.pageCoverThumbnail || '/images/choosehill/chase-photo.webp',
         category: post?.category?.[0],
         tags: post?.tags
       }
