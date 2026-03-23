@@ -37,6 +37,8 @@ import { Banner } from './components/Banner'
 import { CTA } from './components/CTA'
 import { Portfolio } from './components/Portfolio'
 import { PortfolioPage } from './components/PortfolioPage'
+import { CoursePage } from './components/CoursePage'
+import { CourseDetail } from './components/CourseDetail'
 import { PortfolioDetail } from './components/PortfolioDetail'
 import SearchInput from './components/SearchInput'
 import { SignInForm } from './components/SignInForm'
@@ -166,6 +168,36 @@ const LayoutPortfolio = props => {
     return (
         <>
             <PortfolioPage projects={props?.portfolioProjects} />
+        </>
+    )
+}
+
+/**
+ * 課程總覽頁面布局
+ * @param {*} props
+ * @returns
+ */
+const LayoutCourse = props => {
+    return (
+        <>
+            <CoursePage
+                courses={props?.courses}
+                bannerUrl={props?.courseBannerUrl}
+                lecturerBlocks={props?.courseLecturerBlocks}
+            />
+        </>
+    )
+}
+
+/**
+ * 單一課程詳細頁布局
+ * @param {*} props
+ * @returns
+ */
+const LayoutCourseDetail = props => {
+    return (
+        <>
+            <CourseDetail course={props?.course} blocks={props?.blocks} />
         </>
     )
 }
@@ -608,6 +640,8 @@ export {
     LayoutArchive,
     LayoutBase,
     LayoutCategoryIndex,
+    LayoutCourse,
+    LayoutCourseDetail,
     LayoutDashboard,
     LayoutIndex,
     LayoutPortfolio,
