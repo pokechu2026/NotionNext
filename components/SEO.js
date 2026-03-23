@@ -315,6 +315,24 @@ const getSEOMeta = (props, router, locale) => {
         slug: 'page/' + page,
         type: 'website'
       }
+    case '/course':
+      return {
+        title: `AI 課程總覽 | ${siteInfo?.title}`,
+        description: '專為企業、學校與個人打造的 AI 應用課程，從入門到進階一應俱全',
+        image: '/images/choosehill/chase-photo.webp',
+        slug: 'course',
+        type: 'website'
+      }
+    case '/course/[id]':
+      return {
+        title: post
+          ? `${post?.title} | ${siteInfo?.title}`
+          : `AI 課程 | ${siteInfo?.title}`,
+        description: post?.summary || '選擇之丘 AI 課程詳細介紹',
+        image: '/images/choosehill/chase-photo.webp',
+        slug: 'course',
+        type: 'website'
+      }
     case '/category/[category]':
       return {
         title: `${category} | ${locale.COMMON.CATEGORY} | ${siteInfo?.title}`,
