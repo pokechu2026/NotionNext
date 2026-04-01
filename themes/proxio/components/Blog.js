@@ -5,26 +5,12 @@ import SmartLink from '@/components/SmartLink'
 import GradientBadge from './GradientBadge'
 
 /**
- * 博文列表
+ * 博文列表（首頁「最新 AI 應用教學案例」區塊）
  * @param {*} param0
  * @returns
  */
 export const Blog = ({ posts }) => {
   const enable = siteConfig('PROXIO_BLOG_ENABLE')
-  
-  // 博客列表默认显示summary文字，当鼠标指向时显示文章封面。这里可选把summary文字替换成图片占位符。
-  const PROXIO_BLOG_PLACEHOLDER_IMG_URL_1 = siteConfig(
-    'PROXIO_BLOG_PLACEHOLDER_IMG_URL_1'
-  )
-  const PROXIO_BLOG_PLACEHOLDER_IMG_URL_2 = siteConfig(
-    'PROXIO_BLOG_PLACEHOLDER_IMG_URL_2'
-  )
-  const PROXIO_BLOG_PLACEHOLDER_IMG_URL_3 = siteConfig(
-    'PROXIO_BLOG_PLACEHOLDER_IMG_URL_3'
-  )
-  const PROXIO_BLOG_PLACEHOLDER_IMG_URL_4 = siteConfig(
-    'PROXIO_BLOG_PLACEHOLDER_IMG_URL_4'
-  )
 
   const PROXIO_BLOG_TITLE = siteConfig('PROXIO_BLOG_TITLE')
   const PROXIO_BLOG_TEXT_1 = siteConfig('PROXIO_BLOG_TEXT_1')
@@ -54,20 +40,9 @@ export const Blog = ({ posts }) => {
               </div>
             </div>
           </div>
-          {/* 博客列表 此处优先展示3片文章 */}
+          {/* 博客列表 此处优先展示4篇文章 */}
           <div className='-mx-4 grid md:grid-cols-2 grid-cols-1'>
             {posts?.map((item, index) => {
-              // 文章封面图片，默认使用占位符 根据index 判断获取的时哪一张图片
-              let coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_1
-              if (index === 0) {
-                coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_1
-              } else if (index === 1) {
-                coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_2
-              } else if (index === 2) {
-                coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_3
-              } else if (index === 3) {
-                coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_4
-              }
               return (
                 <div key={index} className='w-full px-4'>
                   <div
@@ -75,13 +50,19 @@ export const Blog = ({ posts }) => {
                     data-wow-delay='.1s'>
                     <div className='relative rounded-xl border overflow-hidden shadow-md dark:border-gray-700 dark:bg-gray-800'>
                       <SmartLink href={item?.href} className='block'>
-                        {/* 縮圖：預設明亮顯示 */}
-                        {item.pageCoverThumbnail && (
+                        {/* 縮圖：16:9 比例顯示（無縮圖時顯示漸層佔位） */}
+                        {item.pageCoverThumbnail ? (
                           <LazyImage
                             src={item.pageCoverThumbnail}
                             alt={item.title}
-                            className='w-full h-80 object-cover rounded-xl'
+                            className='w-full aspect-video object-cover rounded-xl'
                           />
+                        ) : (
+                          <div className='w-full aspect-video rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center'>
+                            <svg className='w-12 h-12 text-gray-600' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' />
+                            </svg>
+                          </div>
                         )}
                         {/* Hover 遮罩：灰色底 + summary 文字 */}
                         <div className='absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6'>
@@ -93,7 +74,7 @@ export const Blog = ({ posts }) => {
                     </div>
                     {/* 内容部分 */}
                     <div className='relative z-10 p-4'>
-                      <span className='inline-blocktext-center text-xs font-medium leading-loose text-white'>
+                      <span className='inline-block text-center text-xs font-medium leading-loose text-white'>
                         {item.publishDay}
                       </span>
                       <h3>
@@ -108,6 +89,36 @@ export const Blog = ({ posts }) => {
                 </div>
               )
             })}
+          </div>
+
+          {/* 更多案例 — 漸層流動按鈕 */}
+          <div className='flex justify-center pb-6'>
+            <SmartLink
+              href='/course-case'
+              className='group relative inline-flex items-center justify-center rounded-full p-[1.5px] overflow-hidden'>
+              {/* 漸層邊框 */}
+              <span
+                style={{ '--bg-size': '300%', backgroundSize: '300% 100%', backgroundImage: 'linear-gradient(to right, #ffaa40, #9c40ff, #ffaa40)' }}
+                className='animate-gradient absolute inset-0 rounded-full'
+              />
+              {/* 內層黑底 */}
+              <span className='relative z-10 inline-flex items-center rounded-full bg-black px-7 py-3'>
+                <span
+                  style={{
+                    '--bg-size': '300%',
+                    backgroundSize: '300% 100%',
+                    backgroundImage: 'linear-gradient(to right, #ffaa40, #9c40ff, #ffaa40)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}
+                  className='animate-gradient inline text-base font-medium'
+                >
+                  更多案例
+                </span>
+                <span className='ml-2 text-gray-400 transition-transform duration-200 group-hover:translate-x-1'>›</span>
+              </span>
+            </SmartLink>
           </div>
         </div>
       </section>

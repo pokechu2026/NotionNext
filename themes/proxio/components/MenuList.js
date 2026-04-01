@@ -46,8 +46,8 @@ export const MenuList = props => {
     links = customNav.concat(links)
   }
 
-  // 如果 开启自定义菜单，则覆盖Page生成的菜单
-  if (siteConfig('CUSTOM_MENU', BLOG.CUSTOM_MENU)) {
+  // 如果 开启自定义菜单，则覆盖Page生成的菜单（需有內容才覆蓋，避免 Notion 暫時失效時 menu 消失）
+  if (siteConfig('CUSTOM_MENU', BLOG.CUSTOM_MENU) && customMenu?.length > 0) {
     links = customMenu
   }
 

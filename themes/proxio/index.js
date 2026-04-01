@@ -40,6 +40,7 @@ import { PortfolioPage } from './components/PortfolioPage'
 import { CoursePage } from './components/CoursePage'
 import { CourseDetail } from './components/CourseDetail'
 import { PortfolioDetail } from './components/PortfolioDetail'
+import { TeachingCasePage } from './components/TeachingCasePage'
 import SearchInput from './components/SearchInput'
 import { SignInForm } from './components/SignInForm'
 import { SignUpForm } from './components/SignUpForm'
@@ -99,24 +100,20 @@ const LayoutBase = props => {
  */
 const LayoutIndex = props => {
     const count = siteConfig('PROXIO_BLOG_COUNT', 4, CONFIG)
-    const { locale } = useGlobal()
-    const posts = props?.allNavPages ? props.allNavPages.slice(0, count) : []
+    // 依日期倒序排列（最新加入的排最前面）
+    const sorted = [...(props?.allNavPages || [])].sort((a, b) => {
+        const dateA = new Date(a.publishDate || a.lastEditedDate || 0).getTime()
+        const dateB = new Date(b.publishDate || b.lastEditedDate || 0).getTime()
+        return dateB - dateA
+    })
+    const posts = sorted.slice(0, count)
     return (
         <>
             {/* 英雄区 */}
             {siteConfig('PROXIO_HERO_ENABLE', true, CONFIG) && <Hero {...props} />}
-            {/* 博文列表 */}
+            {/* 博文列表（最新 AI 應用教學案例） */}
             {siteConfig('PROXIO_BLOG_ENABLE', true, CONFIG) && (
-                <>
-                    <Blog posts={posts} />
-                    {/* 更多文章按钮 */}
-                    <div className='container mx-auto flex justify-end mb-4'>
-                        <SmartLink className='text-lg underline' href={'/archive'}>
-                            <span>{locale.COMMON.MORE}</span>
-                            <i className='ml-2 fas fa-arrow-right' />
-                        </SmartLink>
-                    </div>
-                </>
+                <Blog posts={posts} />
             )}
 
             {/* 作品集 */}
@@ -198,6 +195,26 @@ const LayoutCourseDetail = props => {
     return (
         <>
             <CourseDetail course={props?.course} blocks={props?.blocks} />
+        </>
+    )
+}
+
+/**
+ * 教學案例頁面布局
+ * @param {*} props
+ * @returns
+ */
+const LayoutTeachingCase = props => {
+    // 從 allNavPages 取得所有文章，依日期倒序（最新加入的排最前面）
+    const allPosts = [...(props?.allNavPages || [])]
+        .sort((a, b) => {
+            const dateA = new Date(a.publishDate || a.lastEditedDate || 0).getTime()
+            const dateB = new Date(b.publishDate || b.lastEditedDate || 0).getTime()
+            return dateB - dateA
+        })
+    return (
+        <>
+            <TeachingCasePage posts={allPosts} />
         </>
     )
 }
@@ -652,5 +669,6 @@ export {
     LayoutSignUp,
     LayoutSlug,
     LayoutTagIndex,
+    LayoutTeachingCase,
     CONFIG as THEME_CONFIG
 }
