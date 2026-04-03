@@ -97,9 +97,10 @@ function renderBlock(block, depth = 0) {
     case 'callout':
       return (
         <div key={id} className='mb-4 flex gap-3 rounded-lg bg-gray-50 dark:bg-dark-2 p-4'>
-          {value?.icon?.emoji && <span className='text-xl'>{value.icon.emoji}</span>}
+          {value?.icon?.emoji && <span className='text-xl shrink-0'>{value.icon.emoji}</span>}
           <div className='text-body-color dark:text-dark-6'>
             {renderRichText(value?.rich_text)}
+            {block.children?.map(child => renderBlock(child, depth + 1))}
           </div>
         </div>
       )
