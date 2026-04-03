@@ -302,18 +302,6 @@ export const PortfolioDetail = ({ project, blocks = [] }) => {
           )}
         </div>
 
-        {/* 封面圖 */}
-        {project.cover && (
-          <div className='mb-10 overflow-hidden rounded-xl'>
-            <NotionImage
-              src={project.cover}
-              alt={project.title}
-              size='banner'
-              className='w-full object-cover'
-            />
-          </div>
-        )}
-
         {/* Notion 內容 */}
         <div className='notion-content'>
           {groupedBlocks.map((item, index) => {
