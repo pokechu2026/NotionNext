@@ -126,13 +126,33 @@ function renderBlock(block, depth = 0) {
 
     case 'video': {
       const videoUrl = value?.file?.url || value?.external?.url || ''
+      if (!videoUrl) return null
+
+      // 判斷是否為 YouTube 影片（需用 iframe 嵌入）
+      const youtubeMatch =
+        videoUrl.match(/youtube\.com\/watch\?v=([^&]+)/) ||
+        videoUrl.match(/youtu\.be\/([^?]+)/)
+
+      if (youtubeMatch) {
+        const videoId = youtubeMatch[1]
+        return (
+          <div key={id} className='mb-6 aspect-video'>
+            <iframe
+              className='w-full h-full rounded-lg'
+              src={`https://www.youtube.com/embed/${videoId}`}
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowFullScreen
+            />
+          </div>
+        )
+      }
+
+      // 一般影片檔（mp4 等）
       return (
         <div key={id} className='mb-6'>
-          {videoUrl && (
-            <video controls className='w-full rounded-lg'>
-              <source src={videoUrl} />
-            </video>
-          )}
+          <video controls className='w-full rounded-lg'>
+            <source src={videoUrl} />
+          </video>
         </div>
       )
     }
