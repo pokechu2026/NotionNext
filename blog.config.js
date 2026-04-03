@@ -15,6 +15,8 @@ const BLOG = {
   APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'dark', // ['light', 'dark', 'auto'], // light 日间模式 ， dark夜间模式， auto根据时间和主题自动夜间模式
   APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6], // 夜间模式起至时间，false时关闭根据时间自动切换夜间模式
 
+  TITLE: process.env.NEXT_PUBLIC_TITLE || 'Choosehill 選擇之丘 AI', // 網站標題，用於 Notion 無法連線時的 fallback
+  DESCRIPTION: process.env.NEXT_PUBLIC_DESCRIPTION || '實戰導向的 AI 教學分享，從課程回顧到技術應用一覽無遺', // 網站描述，用於 Notion 無法連線時的 fallback
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Chase Chao｜選擇之丘 AI', // 您的昵称 例如 tangly1024
   BIO: process.env.NEXT_PUBLIC_BIO || 'AI Studio 創辦人 ✦ AI 教學 × VR 製作 × 企業顧問', // 作者简介
   LINK: process.env.NEXT_PUBLIC_LINK || 'https://www.choosehill.com', // 网站地址
