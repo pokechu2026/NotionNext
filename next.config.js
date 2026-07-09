@@ -89,7 +89,8 @@ const nextConfig = {
     : process.env.NEXT_BUILD_STANDALONE === 'true'
       ? 'standalone'
       : undefined,
-  staticPageGenerationTimeout: 120,
+  // 課程/專案頁需遞迴抓取大量 Notion block，內容多的頁面在建置排隊時可能超過預設 120 秒
+  staticPageGenerationTimeout: 300,
 
   // 性能优化配置
   compress: true,
