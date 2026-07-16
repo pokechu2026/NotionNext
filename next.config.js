@@ -286,29 +286,8 @@ const nextConfig = {
       THEME
     )
 
-    // 性能优化配置
-    if (!dev) {
-      // 生产环境优化
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          chunks: 'all',
-          cacheGroups: {
-            vendor: {
-              test: /[\\/]node_modules[\\/]/,
-              name: 'vendors',
-              chunks: 'all',
-            },
-            common: {
-              name: 'common',
-              minChunks: 2,
-              chunks: 'all',
-              enforce: true,
-            },
-          },
-        },
-      }
-    }
+    // 保留 Next.js 預設的分包策略。手動把所有依賴合併成 vendors/common
+    // 會讓每個頁面都下載未使用的大型套件，弱網路下也更容易載入失敗。
 
     // Enable source maps in development mode
     if (dev || process.env.NODE_ENV_API === 'development') {
@@ -327,6 +306,9 @@ const nextConfig = {
   },
   experimental: {
     scrollRestoration: true,
+    // Notion 資料抓取有嚴格速率限制；單一建置 worker 可共用記憶體快取，
+    // 也避免多個頁面同時轟炸 unofficial API 導致整次部署失敗。
+    cpus: 1,
     // 性能优化实验性功能
     optimizePackageImports: ['@heroicons/react', 'lodash']
   },

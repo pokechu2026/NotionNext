@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef, useState } from 'react'
 
 /**
@@ -19,22 +20,60 @@ export function ShaderAnimation({ fallbackImage }) {
 
   useEffect(() => {
     let scriptEl = null
+    let loadTimeout = null
+    let cancelled = false
+
+    const isMobile =
+      window.innerWidth < 768 ||
+      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+    const canvas = document.createElement('canvas')
+    const supportsWebGL = Boolean(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    )
+
+    // 手機與不支援 WebGL 的裝置直接顯示備援圖，避免黑畫面與額外下載。
+    if (isMobile || !supportsWebGL) {
+      return undefined
+    }
+
+    const startShader = () => {
+      if (cancelled || !containerRef.current || !window.THREE) return
+      try {
+        initThreeJS()
+      } catch (error) {
+        console.warn('[Hero] Shader initialization failed, using fallback', error)
+      }
+    }
 
     // 檢查 Three.js 是否已載入
-    if (typeof window !== 'undefined' && window.THREE) {
-      initThreeJS()
-    } else if (typeof window !== 'undefined') {
+    if (window.THREE) {
+      startShader()
+    } else {
       scriptEl = document.createElement('script')
       scriptEl.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js'
+      scriptEl.async = true
+      scriptEl.crossOrigin = 'anonymous'
       scriptEl.onload = () => {
-        if (containerRef.current && window.THREE) {
-          initThreeJS()
-        }
+        clearTimeout(loadTimeout)
+        startShader()
+      }
+      scriptEl.onerror = () => {
+        clearTimeout(loadTimeout)
+        console.warn('[Hero] Three.js failed to load, using fallback')
       }
       document.head.appendChild(scriptEl)
+
+      loadTimeout = setTimeout(() => {
+        console.warn('[Hero] Three.js load timed out, using fallback')
+        scriptEl?.remove()
+        scriptEl = null
+      }, 8000)
     }
 
     return () => {
+      cancelled = true
+      clearTimeout(loadTimeout)
       // Cleanup
       if (sceneRef.current.animationId) {
         cancelAnimationFrame(sceneRef.current.animationId)
@@ -55,11 +94,6 @@ export function ShaderAnimation({ fallbackImage }) {
     if (!containerRef.current || !window.THREE) return
     const THREE = window.THREE
     const container = containerRef.current
-
-    // 偵測行動裝置
-    const isMobile =
-      window.innerWidth < 768 ||
-      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
 
     // 清除既有內容
     container.innerHTML = ''
@@ -127,9 +161,11 @@ export function ShaderAnimation({ fallbackImage }) {
     const mesh = new THREE.Mesh(geometry, material)
     scene.add(mesh)
 
-    const renderer = new THREE.WebGLRenderer()
-    // 手機限制 pixelRatio 為 1，桌面最高 2
-    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2))
+    const renderer = new THREE.WebGLRenderer({
+      antialias: false,
+      powerPreference: 'low-power'
+    })
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     container.appendChild(renderer.domElement)
 
     // 設定 canvas 樣式
@@ -156,15 +192,9 @@ export function ShaderAnimation({ fallbackImage }) {
     onWindowResize()
     window.addEventListener('resize', onWindowResize, false)
 
-    // 手機降速：每 2 幀更新一次，動畫步進減半
-    const timeStep = isMobile ? 0.025 : 0.05
-    let frameCount = 0
-
     const animate = () => {
       sceneRef.current.animationId = requestAnimationFrame(animate)
-      frameCount++
-      if (isMobile && frameCount % 2 !== 0) return // 手機跳幀
-      uniforms.time.value += timeStep
+      uniforms.time.value += 0.05
       renderer.render(scene, camera)
     }
 
@@ -174,16 +204,29 @@ export function ShaderAnimation({ fallbackImage }) {
 
   return (
     <>
-      {/* Shader 載入前顯示暗色背景避免閃爍 */}
-      {!shaderReady && (
-        <div
-          className='w-full absolute h-screen left-0 top-0 pointer-events-none'
-          style={{ background: '#0a0a0a' }}
-        />
-      )}
+      <div
+        className='w-full absolute h-screen left-0 top-0 pointer-events-none overflow-hidden'
+        style={{
+          background: 'radial-gradient(circle at 30% 20%, #23304a 0%, #0a0a0a 58%, #020202 100%)'
+        }}>
+        {fallbackImage && (
+          <img
+            src={fallbackImage}
+            alt=''
+            className='h-full w-full object-cover opacity-60'
+            onError={event => {
+              event.currentTarget.style.display = 'none'
+            }}
+          />
+        )}
+      </div>
       <div
         ref={containerRef}
         className='w-full absolute h-screen left-0 top-0 pointer-events-none'
+        style={{
+          opacity: shaderReady ? 1 : 0,
+          transition: 'opacity 500ms ease'
+        }}
       />
     </>
   )

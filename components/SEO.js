@@ -286,7 +286,7 @@ const generateStructuredData = (meta, siteInfo, url, image, author) => {
  * @param {*} router
  */
 const getSEOMeta = (props, router, locale) => {
-  const { post, siteInfo, tag, category, page } = props
+  const { post, course, project, siteInfo, tag, category, page } = props
   const keyword = router?.query?.s
 
   const TITLE = siteConfig('TITLE')
@@ -325,12 +325,38 @@ const getSEOMeta = (props, router, locale) => {
       }
     case '/course/[id]':
       return {
-        title: post
-          ? `${post?.title} | ${siteInfo?.title}`
+        title: course
+          ? `${course.title} | ${siteInfo?.title}`
           : `AI 課程 | ${siteInfo?.title}`,
-        description: post?.summary || '選擇之丘 AI 課程詳細介紹',
+        description: course?.summary || '選擇之丘 AI 課程詳細介紹',
         image: '/images/choosehill/chase-photo.webp',
-        slug: 'course',
+        slug: `course/${router.query.id || ''}`,
+        type: 'website'
+      }
+    case '/portfolio':
+      return {
+        title: `代表專案 | ${siteInfo?.title}`,
+        description: '跨越影視、VR、AI 與設計的多元專案實績',
+        image: '/images/choosehill/chase-photo.webp',
+        slug: 'portfolio',
+        type: 'website'
+      }
+    case '/portfolio/[id]':
+      return {
+        title: project
+          ? `${project.title} | ${siteInfo?.title}`
+          : `代表專案 | ${siteInfo?.title}`,
+        description: project?.metric || '選擇之丘代表專案詳細介紹',
+        image: project?.cover || '/images/choosehill/chase-photo.webp',
+        slug: `portfolio/${router.query.id || ''}`,
+        type: 'website'
+      }
+    case '/course-case':
+      return {
+        title: `教學案例 | ${siteInfo?.title}`,
+        description: '選擇之丘 AI 企業內訓、校園課程與工作坊案例',
+        image: '/images/choosehill/chase-photo.webp',
+        slug: 'course-case',
         type: 'website'
       }
     case '/category/[category]':

@@ -91,6 +91,12 @@ export const Blog = ({ posts }) => {
             })}
           </div>
 
+          {(!posts || posts.length === 0) && (
+            <div className='pb-12 text-center text-body-color dark:text-dark-6'>
+              最新案例暫時無法載入，請稍後重新整理
+            </div>
+          )}
+
           {/* 更多案例 — 漸層流動按鈕 */}
           <div className='flex justify-center pb-6'>
             <SmartLink

@@ -7,6 +7,13 @@ import { useEffect } from 'react';
 const CursorDot = () => {
     const router = useRouter();
     useEffect(() => {
+        if (
+            window.matchMedia('(pointer: coarse)').matches ||
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ) {
+            return undefined;
+        }
+
         // 创建小白点元素
         const dot = document.createElement('div');
         dot.classList.add('cursor-dot');
@@ -59,7 +66,7 @@ const CursorDot = () => {
         router.events.on('routeChangeError', handleRouteEnd);
 
         // 为所有可点击元素和包含 hover 或 group-hover 类名的元素添加事件监听
-        setTimeout(() => {
+        const listenerTimer = setTimeout(() => {
             const clickableElements = document.querySelectorAll(
                 'a, button, [role="button"], [onclick], [cursor="pointer"], [class*="hover"], [class*="group-hover"], [class*="cursor-pointer"]'
             );
@@ -70,6 +77,7 @@ const CursorDot = () => {
         }, 200);
 
         // 动画循环：延迟更新小白点和 loading 圆环位置
+        let animationFrameId;
         const updateDotPosition = () => {
             const damping = 0.2;
             dotPos.x += (mouse.x - dotPos.x) * damping;
@@ -80,7 +88,7 @@ const CursorDot = () => {
             ring.style.left = `${dotPos.x}px`;
             ring.style.top = `${dotPos.y}px`;
 
-            requestAnimationFrame(updateDotPosition);
+            animationFrameId = requestAnimationFrame(updateDotPosition);
         };
 
         updateDotPosition();
@@ -88,6 +96,8 @@ const CursorDot = () => {
         // 清理函数
         return () => {
             document.removeEventListener('mousemove', handleMouseMove);
+            clearTimeout(listenerTimer);
+            cancelAnimationFrame(animationFrameId);
             router.events.off('routeChangeStart', handleRouteStart);
             router.events.off('routeChangeComplete', handleRouteEnd);
             router.events.off('routeChangeError', handleRouteEnd);

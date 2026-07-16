@@ -3,9 +3,9 @@
 
 'use client'
 import Loading from '@/components/Loading'
-import NotionPage from '@/components/NotionPage'
 import { siteConfig } from '@/lib/config'
 import { isBrowser } from '@/lib/utils'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { Career } from './components/Career'
@@ -17,38 +17,39 @@ import { Features } from './components/Features'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { Pricing } from './components/Pricing'
 import { Team } from './components/Team'
 import { Testimonials } from './components/Testimonials'
 import CONFIG from './config'
 import { Style } from './style'
 // import { MadeWithButton } from './components/MadeWithButton'
-import Comment from '@/components/Comment'
 import replaceSearchResult from '@/components/Mark'
-import ShareBar from '@/components/ShareBar'
-import DashboardBody from '@/components/ui/dashboard/DashboardBody'
-import DashboardHeader from '@/components/ui/dashboard/DashboardHeader'
 import { useGlobal } from '@/lib/global'
 import { loadWowJS } from '@/lib/plugins/wow'
-import { SignIn, SignUp } from '@clerk/nextjs'
 import SmartLink from '@/components/SmartLink'
-import { ArticleLock } from './components/ArticleLock'
 import { Banner } from './components/Banner'
 import { CTA } from './components/CTA'
 import { Portfolio } from './components/Portfolio'
-import { PortfolioPage } from './components/PortfolioPage'
-import { CoursePage } from './components/CoursePage'
-import { CourseDetail } from './components/CourseDetail'
-import { PortfolioDetail } from './components/PortfolioDetail'
-import { TeachingCasePage } from './components/TeachingCasePage'
-import SearchInput from './components/SearchInput'
-import { SignInForm } from './components/SignInForm'
-import { SignUpForm } from './components/SignUpForm'
-import { SVG404 } from './components/svg/SVG404'
-import Lenis from '@/components/Lenis'
 import Announcement from './components/Announcement'
 import CursorDot from '@/components/CursorDot'
 import LoadingCover from './components/LoadingCover'
+
+const NotionPage = dynamic(() => import('@/components/NotionPage'))
+const Comment = dynamic(() => import('@/components/Comment'), { ssr: false })
+const ShareBar = dynamic(() => import('@/components/ShareBar'), { ssr: false })
+const DashboardBody = dynamic(() => import('@/components/ui/dashboard/DashboardBody'), { ssr: false })
+const DashboardHeader = dynamic(() => import('@/components/ui/dashboard/DashboardHeader'), { ssr: false })
+const SignIn = dynamic(() => import('@clerk/nextjs').then(m => m.SignIn), { ssr: false })
+const SignUp = dynamic(() => import('@clerk/nextjs').then(m => m.SignUp), { ssr: false })
+const ArticleLock = dynamic(() => import('./components/ArticleLock').then(m => m.ArticleLock))
+const PortfolioPage = dynamic(() => import('./components/PortfolioPage').then(m => m.PortfolioPage))
+const CoursePage = dynamic(() => import('./components/CoursePage').then(m => m.CoursePage))
+const CourseDetail = dynamic(() => import('./components/CourseDetail').then(m => m.CourseDetail))
+const PortfolioDetail = dynamic(() => import('./components/PortfolioDetail').then(m => m.PortfolioDetail))
+const TeachingCasePage = dynamic(() => import('./components/TeachingCasePage').then(m => m.TeachingCasePage))
+const SearchInput = dynamic(() => import('./components/SearchInput'))
+const SignInForm = dynamic(() => import('./components/SignInForm').then(m => m.SignInForm))
+const SignUpForm = dynamic(() => import('./components/SignUpForm').then(m => m.SignUpForm))
+const SVG404 = dynamic(() => import('./components/svg/SVG404').then(m => m.SVG404))
 
 /**
  * 布局框架
@@ -84,8 +85,6 @@ const LayoutBase = props => {
             {/* 悬浮按钮 */}
             <BackToTopButton />
 
-            {/* 鼠标阻尼动画 */}
-            <Lenis />
             {/* 鼠标跟随动画 */}
             <CursorDot />
             {/* <MadeWithButton/> */}
