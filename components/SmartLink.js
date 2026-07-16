@@ -43,7 +43,7 @@ const SmartLink = ({ href, children, ...rest }) => {
 
   // 内部链接（可为对象形式）
   return (
-    <Link href={href} {...rest}>
+    <Link href={href} prefetch={false} {...rest}>
       {children}
     </Link>
   )

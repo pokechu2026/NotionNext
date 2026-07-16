@@ -185,7 +185,9 @@ export const CoursePage = ({
 
           {filtered.length === 0 && (
             <div className='text-center py-20 text-body-color dark:text-dark-6'>
-              目前沒有符合條件的課程
+              {courses.length === 0
+                ? '課程資料暫時無法載入，請稍後重新整理'
+                : '目前沒有符合條件的課程'}
             </div>
           )}
         </div>

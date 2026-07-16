@@ -16,7 +16,7 @@ export const Portfolio = ({ projects = [] }) => {
   const text = siteConfig('PROXIO_PORTFOLIO_TEXT', '', CONFIG)
   const enable = siteConfig('PROXIO_PORTFOLIO_ENABLE', true, CONFIG)
 
-  if (!enable || !projects || projects.length === 0) return null
+  if (!enable) return null
 
   return (
     <section className='pb-8 pt-20 dark:bg-dark lg:pb-[40px] lg:pt-[120px]'>
@@ -39,7 +39,7 @@ export const Portfolio = ({ projects = [] }) => {
 
         {/* 作品卡片 Grid */}
         <div className='-mx-4 flex flex-wrap'>
-          {projects.map((project, index) => (
+          {projects?.map((project, index) => (
             <div key={project.id || index} className='w-full px-4 md:w-1/2 lg:w-1/3'>
               <SmartLink href={`/portfolio/${project.id.replace(/-/g, '')}`} className='block'>
               <div
@@ -101,6 +101,12 @@ export const Portfolio = ({ projects = [] }) => {
             </div>
           ))}
         </div>
+
+        {(!projects || projects.length === 0) && (
+          <div className='pb-12 text-center text-body-color dark:text-dark-6'>
+            精選專案暫時無法載入，請稍後重新整理
+          </div>
+        )}
 
         {/* 查看全部按鈕 */}
         <div className='mt-4 w-full flex justify-center items-center'>

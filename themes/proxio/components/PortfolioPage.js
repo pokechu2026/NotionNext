@@ -136,7 +136,9 @@ export const PortfolioPage = ({ projects = [] }) => {
 
         {filtered.length === 0 && (
           <div className='text-center py-20 text-body-color dark:text-dark-6'>
-            目前沒有符合條件的專案
+            {projects.length === 0
+              ? '專案資料暫時無法載入，請稍後重新整理'
+              : '目前沒有符合條件的專案'}
           </div>
         )}
       </div>
