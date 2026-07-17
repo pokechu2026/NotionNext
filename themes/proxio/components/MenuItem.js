@@ -10,12 +10,33 @@ import { useState } from 'react'
 export const MenuItem = ({ link }) => {
   const hasSubMenu = link?.subMenus?.length > 0
   const router = useRouter()
+  const isInternalLink =
+    typeof link?.href === 'string' && link.href.startsWith('/')
 
   // 管理子菜单的展开状态
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
 
   const toggleSubMenu = () => {
     setIsSubMenuOpen(prev => !prev) // 切换子菜单状态
+  }
+
+  const handleLinkClick = event => {
+    if (!isInternalLink || link?.target) {
+      return
+    }
+
+    // 明確走 Next Router，避免首頁 section id 或全域 click 腳本干擾導覽。
+    event.preventDefault()
+    router.push(link.href)
+  }
+
+  const handleSubMenuLinkClick = (event, href, target) => {
+    if (typeof href !== 'string' || !href.startsWith('/') || target) {
+      return
+    }
+
+    event.preventDefault()
+    router.push(href)
   }
 
   return (
@@ -26,6 +47,7 @@ export const MenuItem = ({ link }) => {
           <SmartLink
             href={link?.href}
             target={link?.target}
+            onClick={handleLinkClick}
             className={`ud-menu-scroll mx-8 flex py-2 text-sm font-medium text-dark group-hover:text-primary dark:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
               router.route === '/'
                 ? 'lg:text-white lg:group-hover:text-white'
@@ -75,6 +97,9 @@ export const MenuItem = ({ link }) => {
                 key={index}
                 href={sLink.href}
                 target={link?.target}
+                onClick={event =>
+                  handleSubMenuLinkClick(event, sLink.href, link?.target)
+                }
                 className='block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary'>
                 {/* 子菜单 SubMenuItem */}
                 <span className='text-md ml-2 whitespace-nowrap'>
