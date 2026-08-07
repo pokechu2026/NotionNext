@@ -4,8 +4,31 @@ import { isBrowser, loadExternalResource } from '@/lib/utils'
 import mediumZoom from '@fisch0920/medium-zoom'
 import 'katex/dist/katex.min.css'
 import dynamic from 'next/dynamic'
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { NotionRenderer } from 'react-notion-x'
+
+/**
+ * 清洗 recordMap，避免 react-notion-x 因不完整的 block 導致整篇文章空白。
+ * react-notion-x 會對每個 block 的 value.id 呼叫 uuidToId(id.replaceAll)，
+ * 只要有一個 block 的 value.id 缺失就會丟出未捕捉例外，讓 NotionRenderer 整棵樹渲染失敗。
+ * Notion 非官方 API 偶爾會回傳缺 id 的 block，這裡：
+ *   - value 為空/非物件的無效 block 直接略過
+ *   - value.id 缺失的，用 map 的 key（本身即該 block 的 UUID）回填（僅淺拷貝需修正者）
+ */
+function sanitizeRecordMap(recordMap) {
+  if (!recordMap?.block) return recordMap
+  const block = {}
+  for (const key of Object.keys(recordMap.block)) {
+    const entry = recordMap.block[key]
+    if (!entry || !entry.value || typeof entry.value !== 'object') continue
+    // 權限不足 / 殘缺（只有 role、沒有 type）的區塊無法渲染，直接略過
+    if (entry.value.role === 'none' || entry.value.type === undefined) continue
+    block[key] = entry.value.id
+      ? entry
+      : { ...entry, value: { ...entry.value, id: key } }
+  }
+  return { ...recordMap, block }
+}
 
 /**
  * 整个站点的核心组件
@@ -116,15 +139,18 @@ const NotionPage = ({ post, className }) => {
     return () => clearTimeout(timer)
   }, [post])
 
-  // const cleanBlockMap = cleanBlocksWithWarn(post?.blockMap);
-  // console.log('NotionPage render with post:', post);
+  // 清洗 blockMap，避免缺 id 的 block 讓整篇文章渲染失敗（內文空白）
+  const safeBlockMap = useMemo(
+    () => sanitizeRecordMap(post?.blockMap),
+    [post?.blockMap]
+  )
 
   return (
     <div
       id='notion-article'
       className={`mx-auto overflow-hidden ${className || ''}`}>
       <NotionRenderer
-        recordMap={post?.blockMap}
+        recordMap={safeBlockMap}
         mapPageUrl={mapPageUrl}
         mapImageUrl={mapImgUrl}
         components={{
