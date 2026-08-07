@@ -34,6 +34,12 @@ export const Hero = props => {
     null,
     config
   )
+  // siteConfig() 內部呼叫 useGlobal()（React hook），呼叫次數每次 render 必須固定，
+  // 因此以下值一律在最上方無條件取得，不可寫在 JSX 或條件分支中，否則整頁 React 崩潰。
+  const PROXIO_HERO_TITLE_1 = siteConfig('PROXIO_HERO_TITLE_1', null, config) || ''
+  const PROXIO_HERO_TITLE_2 = siteConfig('PROXIO_HERO_TITLE_2', null, config)
+  const PROXIO_HERO_BUTTON_1_URL = siteConfig('PROXIO_HERO_BUTTON_1_URL', '', config)
+  const PROXIO_HERO_BUTTON_2_URL = siteConfig('PROXIO_HERO_BUTTON_2_URL', '', config)
   return (
     <>
       {/* <!-- ====== Hero Section Start --> */}
@@ -82,7 +88,7 @@ export const Hero = props => {
               <h1 className='mb-6 text-3xl font-bold leading-snug sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]'>
                 <AnimatedShinyText shimmerWidth={200}>
                   {(() => {
-                    const title = siteConfig('PROXIO_HERO_TITLE_1', null, config) || ''
+                    const title = PROXIO_HERO_TITLE_1
                     // 將「AI」和「發光發熱」包裹成極光效果
                     const parts = title.split(/(AI|發光發熱)/)
                     return parts.map((part, i) =>
@@ -101,14 +107,14 @@ export const Hero = props => {
               </h1>
               {/* 次标题 */}
               <p className='mx-auto mb-9 max-w-[600px] text-base font-medium  sm:text-lg sm:leading-[1.44]'>
-                {siteConfig('PROXIO_HERO_TITLE_2', null, config)}
+                {PROXIO_HERO_TITLE_2}
               </p>
               {/* 按钮组 */}
               <ul className='mb-10 flex flex-wrap items-center justify-center gap-5'>
                 {PROXIO_HERO_BUTTON_1_TEXT && (
                   <li>
                     <SmartLink
-                      href={siteConfig('PROXIO_HERO_BUTTON_1_URL', '')}
+                      href={PROXIO_HERO_BUTTON_1_URL}
                       className='group relative inline-flex items-center justify-center rounded-full p-[1.5px] overflow-hidden'>
                       {/* 漸層邊框 */}
                       <span
@@ -138,7 +144,7 @@ export const Hero = props => {
                 {PROXIO_HERO_BUTTON_2_TEXT && (
                   <li>
                     <SmartLink
-                      href={siteConfig('PROXIO_HERO_BUTTON_2_URL', '')}
+                      href={PROXIO_HERO_BUTTON_2_URL}
                       className='group relative inline-flex items-center justify-center rounded-full p-[1.5px] overflow-hidden'>
                       {/* 漸層邊框 */}
                       <span
