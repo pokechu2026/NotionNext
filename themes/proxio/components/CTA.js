@@ -12,6 +12,10 @@ import GradientBadge from './GradientBadge'
  **/
 export const CTA = () => {
   const enable = siteConfig('PROXIO_CTA_ENABLE')
+  // 注意：siteConfig 內部呼叫 useGlobal()（即 React hook），
+  // 因此所有 siteConfig 都必須在元件最上方無條件呼叫，
+  // 不能放進 JSX 或 enable 判斷之後，否則 hook 數量會在不同 render 間改變而讓整頁崩潰。
+  const PROXIO_CTA_TITLE = siteConfig('PROXIO_CTA_TITLE')
   const PROXIO_CTA_TITLE_2 = siteConfig('PROXIO_CTA_TITLE_2')
   const PROXIO_CTA_DESCRIPTION = siteConfig('PROXIO_CTA_DESCRIPTION')
   const PROXIO_CTA_BUTTON = siteConfig('PROXIO_CTA_BUTTON')
@@ -32,7 +36,7 @@ export const CTA = () => {
                 <div className='mx-auto max-w-[570px] text-center wow fadeInUp' data-wow-delay='.2s'>
                   <SparklesText sparklesCount={5} colors={{ first: '#ffaa40', second: '#9c40ff' }} className='text-base'>
                     <GradientBadge>
-                      {siteConfig('PROXIO_CTA_TITLE')}
+                      {PROXIO_CTA_TITLE}
                     </GradientBadge>
                   </SparklesText>
                   <h2 className='mt-6 mb-2.5 text-3xl font-bold leading-snug md:text-[38px] md:leading-[1.44]'>
