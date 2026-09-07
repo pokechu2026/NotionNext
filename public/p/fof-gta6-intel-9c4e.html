@@ -1,4 +1,6 @@
 <title>GTA 6 情報產線樣本</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="description" content="一則 GTA 6 情報從進來到開拍的完整判斷流程：四級證據分級、否決區與理由、一支可開拍的分鏡稿。">
 <meta property="og:type" content="website">
@@ -183,7 +185,9 @@ p{margin:0 0 15px; max-width:68ch}
 
 /* ══ diagrams ══ */
 .figure{margin:8px 0 6px; background:var(--panel); border:1px solid var(--rule); padding:22px 18px}
-.figure svg{display:block; width:100%; height:auto}
+.figure > .svg-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+.figure svg{display:block; width:100%; height:auto; min-width:760px}
+.swipe-hint{display:none}
 .figcap{
   font-family:var(--f-mono); font-size:11.5px; color:var(--text-3);
   margin-top:14px; padding-top:12px; border-top:1px solid var(--rule-soft); line-height:1.7;
@@ -331,6 +335,63 @@ blockquote cite{display:block; margin-top:8px; font-style:normal; font-family:va
 .note strong{color:var(--text)}
 footer{margin-top:46px; padding:26px 0 70px; border-top:1px solid var(--rule); font-size:12.5px; color:var(--text-3); line-height:1.95}
 footer .mono{font-family:var(--f-mono)}
+
+/* ══════ 手機閱讀最佳化 ══════ */
+@media(max-width:760px){
+  body{font-size:17px; line-height:1.85}
+  .wrap{padding:0 18px}
+  .hero-in{padding:60px 18px 44px}
+  .hero .lede{font-size:16.5px; line-height:1.9}
+  .kicker{font-size:11.5px; letter-spacing:.16em; flex-wrap:wrap}
+
+  section{padding:52px 0 0}
+  .eyebrow{font-size:11.5px; letter-spacing:.16em}
+  .sub{font-size:16px; line-height:1.85}
+  h3{font-size:17.5px}
+
+  /* 內文一律不小於 16px */
+  .decay p, .claim p, .killcard p, .legend .row > div:last-child,
+  .field div:last-child, .src .verdict, .pack > p, .note p,
+  .rundown td, .band figcaption{font-size:16px; line-height:1.85}
+  .claim h3{font-size:18px}
+  .src h3{font-size:20px}
+  .src dl{font-size:15px}
+  .pack .kv .v{font-size:15px}
+  blockquote{font-size:15.5px}
+  blockquote cite{font-size:12.5px}
+  .rundown td:nth-child(2){font-size:15px}
+  .rundown td:first-child{font-size:13.5px}
+  .figcap{font-size:13px}
+  footer{font-size:13.5px}
+  .contact{font-size:13.5px}
+
+  /* 標籤與時間碼放大到看得清 */
+  .tag{font-size:11.5px; padding:5px 10px; letter-spacing:.08em}
+  .claim-top .cite{font-size:12.5px}
+  .killcard .reason{font-size:12px}
+  .pack .pn, .pack .kv .k{font-size:11.5px}
+  .stats .l{font-size:11.5px}
+  .decay-hd span{font-size:12.5px}
+
+  /* 表格與圖表改為橫向捲動，不縮字 */
+  .scroller, .figure > .svg-scroll{
+    border:1px solid var(--rule-soft); border-radius:2px;
+  }
+  .figure{padding:18px 14px}
+  .swipe-hint{
+    display:block; font-family:var(--f-mono); font-size:11.5px;
+    color:var(--gold); margin-bottom:9px; letter-spacing:.04em;
+  }
+  .btn{width:100%; justify-content:center; font-size:18px; padding:15px 22px}
+  .btns{gap:10px}
+  .cta{padding:34px 20px}
+  .note{padding:22px 20px}
+  .band figcaption{padding-left:12px}
+}
+@media(max-width:400px){
+  .field, .legend .row{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+}
 </style>
 
 <!-- ══════════ HERO ══════════ -->
@@ -383,7 +444,8 @@ footer .mono{font-family:var(--f-mono)}
   <p class="sub">職缺說明寫的是「捕捉資訊 → 判斷有沒有流量 → 提出拍攝企劃 → 交給團隊製作」。把它拆開，實際運作是一條有淘汰率的漏斗——今天的淘汰率是 11 進 1 出。</p>
 
   <div class="figure">
-    <svg viewBox="0 0 860 300" role="img" aria-label="情報產線流程圖：監控輸入、拆解為主張、四級分級、否決區與候選池、拍攝企劃、交付製作">
+    <div class="swipe-hint">← 左右滑動看完整圖 →</div>
+    <div class="svg-scroll"><svg viewBox="0 0 860 300" role="img" aria-label="情報產線流程圖：監控輸入、拆解為主張、四級分級、否決區與候選池、拍攝企劃、交付製作">
       <defs>
         <linearGradient id="gFlow" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stop-color="#FFC24B"/><stop offset="50%" stop-color="#FF8A3D"/><stop offset="100%" stop-color="#FF2E7E"/>
@@ -442,7 +504,7 @@ footer .mono{font-family:var(--f-mono)}
       <text x="660" y="252" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#B9AAD8">通過與否決都進庫</text>
 
       <text x="440" y="286" font-family="Noto Sans TC, sans-serif" font-size="11.5" fill="#8677A8">否決的條目一樣要存——否則三個月後有人會重新提案同一則被殺過的題目</text>
-    </svg>
+    </svg></div>
     <div class="figcap">圖 1 ／ 情報產線。淘汰率不是浪費，是這份工作的產出品質本身。</div>
   </div>
 </section>
@@ -587,6 +649,7 @@ footer .mono{font-family:var(--f-mono)}
     留言區的爭議量比觀看數更能餵演算法，這是選題時真正在算的東西。
   </p>
 
+  <div class="swipe-hint">← 左右滑動看完整分鏡 →</div>
   <div class="scroller">
     <table class="rundown">
       <thead><tr><th>秒數</th><th>畫面</th><th>口白 / 字幕</th></tr></thead>
@@ -619,7 +682,8 @@ footer .mono{font-family:var(--f-mono)}
   <p class="sub">職缺說明第 7 條寫「協助建立 GTA 6 遊戲資料庫與內容素材庫」。素材庫的價值不在存了多少連結，在於三個月後還找得到、還知道當初為什麼收。</p>
 
   <div class="figure">
-    <svg viewBox="0 0 860 250" role="img" aria-label="素材庫架構圖：來源層、判讀層、資產層與兩個出口">
+    <div class="swipe-hint">← 左右滑動看完整圖 →</div>
+    <div class="svg-scroll"><svg viewBox="0 0 860 250" role="img" aria-label="素材庫架構圖：來源層、判讀層、資產層與兩個出口">
       <defs>
         <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
           <path d="M0,0 L10,5 L0,10 z" fill="#8677A8"/>
@@ -666,7 +730,7 @@ footer .mono{font-family:var(--f-mono)}
       <path d="M720 182 L655 196" stroke="#8677A8" stroke-width="1.2" fill="none" marker-end="url(#ar2)"/>
       <path d="M720 182 L785 196" stroke="#8677A8" stroke-width="1.2" fill="none" marker-end="url(#ar2)"/>
       <text x="16" y="222" font-family="Noto Sans TC, sans-serif" font-size="11.5" fill="#8677A8">兩個出口＝兩種可計費的交付單位</text>
-    </svg>
+    </svg></div>
     <div class="figcap">圖 2 ／ 素材庫三層架構。Layer 2 是整個庫的價值所在——沒有判讀層，Layer 3 就退化成一堆分不出真假的連結。</div>
   </div>
 
@@ -695,7 +759,8 @@ footer .mono{font-family:var(--f-mono)}
   <p class="sub">三組可單獨啟動，也可組合。差別在買的是「產出」、「系統」還是「團隊能力」——這三件事的計價邏輯不同，不該混在同一個數字裡談。</p>
 
   <div class="figure">
-    <svg viewBox="0 0 860 200" role="img" aria-label="三組方案架構圖：產出、系統、能力三層與其相互關係">
+    <div class="swipe-hint">← 左右滑動看完整圖 →</div>
+    <div class="svg-scroll"><svg viewBox="0 0 860 200" role="img" aria-label="三組方案架構圖：產出、系統、能力三層與其相互關係">
       <defs>
         <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
           <path d="M0,0 L10,5 L0,10 z" fill="#8677A8"/>
@@ -729,7 +794,7 @@ footer .mono{font-family:var(--f-mono)}
       <path d="M556 84 L588 84" stroke="#8677A8" stroke-width="1.4" marker-end="url(#ar3)"/>
       <text x="240" y="168" font-family="Noto Sans TC, sans-serif" font-size="12" fill="#FFC24B">依賴度由高到低 ─── 我方參與逐段退場，這是刻意設計的</text>
       <path d="M16 150 L844 150" stroke="#33255A" stroke-width="1"/>
-    </svg>
+    </svg></div>
     <div class="figcap">圖 3 ／ 三組方案的關係是遞進的，不是三選一的價目表。第三組做完，這條產線可以不需要我——這是設計目標，不是風險。</div>
   </div>
 
