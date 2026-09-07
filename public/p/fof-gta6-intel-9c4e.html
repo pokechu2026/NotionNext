@@ -57,15 +57,16 @@ a{color:var(--cyan)}
 #sky{position:absolute; inset:0; width:100%; height:100%; display:block}
 .hero-art{
   position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; object-position:50% 32%; display:block;
+  object-fit:cover; object-position:64% 78%; display:block;
   animation:kenburns 26s ease-in-out infinite alternate;
 }
+@media(max-width:700px){ .hero-art{object-position:70% 82%} }
 @keyframes kenburns{from{transform:scale(1.04)} to{transform:scale(1.12)}}
 .hero-veil{
   position:absolute; inset:0;
   background:
-    linear-gradient(180deg,rgba(10,7,19,.42) 0%,rgba(10,7,19,.60) 46%,rgba(10,7,19,.93) 82%,var(--night) 100%),
-    radial-gradient(90% 70% at 22% 40%,rgba(10,7,19,.50),transparent 70%);
+    linear-gradient(180deg,rgba(10,7,19,.30) 0%,rgba(10,7,19,.55) 44%,rgba(10,7,19,.92) 80%,var(--night) 100%),
+    linear-gradient(96deg,rgba(10,7,19,.86) 0%,rgba(10,7,19,.62) 40%,rgba(10,7,19,.10) 78%);
 }
 .hero-in{position:relative; max-width:900px; margin:0 auto; padding:88px 22px 60px}
 .kicker{
