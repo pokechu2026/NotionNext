@@ -1,0 +1,924 @@
+<title>GTA 6 情報產線樣本</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="一則 GTA 6 情報從進來到開拍的完整判斷流程：四級證據分級、否決區與理由、一支可開拍的分鏡稿。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GTA 6 情報產線樣本">
+<meta property="og:description" content="從一則傳聞到一支能開拍的片｜CHOOSEHILL 選擇之丘 AI STUDIO">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --night:#0A0713;
+  --night-2:#120C20;
+  --panel:#17102A;
+  --panel-2:#1E1636;
+  --rule:#33255A;
+  --rule-soft:#261B45;
+
+  --text:#F2ECFF;
+  --text-2:#B9AAD8;
+  --text-3:#8677A8;
+
+  --magenta:#FF2E7E;
+  --orange:#FF8A3D;
+  --gold:#FFC24B;
+  --cyan:#3ADFE8;
+  --violet:#9D6BFF;
+
+  --t1:#3DE0A0;  --t1-dim:#3de0a01a;
+  --t2:#4FB6F0;  --t2-dim:#4fb6f01a;
+  --t3:#FFB93D;  --t3-dim:#ffb93d1a;
+  --t4:#FF5B57;  --t4-dim:#ff5b571a;
+
+  --f-hero:"Anton","Noto Sans TC",Impact,sans-serif;
+  --f-cond:"Barlow Condensed","Noto Sans TC",sans-serif;
+  --f-body:"Noto Sans TC","Barlow Condensed",-apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--night); color:var(--text);
+  font-family:var(--f-body); font-size:16px; line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important}
+}
+.wrap{max-width:900px; margin:0 auto; padding:0 22px}
+a{color:var(--cyan)}
+
+/* ══ HERO ══ */
+.hero{position:relative; overflow:hidden; border-bottom:1px solid var(--rule)}
+#sky{position:absolute; inset:0; width:100%; height:100%; display:block}
+.hero-art{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:50% 32%; display:block;
+  animation:kenburns 26s ease-in-out infinite alternate;
+}
+@keyframes kenburns{from{transform:scale(1.04)} to{transform:scale(1.12)}}
+.hero-veil{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg,rgba(10,7,19,.42) 0%,rgba(10,7,19,.60) 46%,rgba(10,7,19,.93) 82%,var(--night) 100%),
+    radial-gradient(90% 70% at 22% 40%,rgba(10,7,19,.50),transparent 70%);
+}
+.hero-in{position:relative; max-width:900px; margin:0 auto; padding:88px 22px 60px}
+.kicker{
+  font-family:var(--f-mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--gold); display:flex; align-items:center; gap:10px; margin-bottom:22px;
+}
+.kicker::before{content:""; width:34px; height:2px; background:var(--gold); flex:none}
+.hero h1{
+  font-family:var(--f-hero); font-weight:400;
+  font-size:clamp(46px,10.5vw,104px); line-height:.92; letter-spacing:.005em;
+  margin:0; text-transform:uppercase;
+  background:linear-gradient(96deg,var(--gold) 4%,var(--orange) 34%,var(--magenta) 74%,var(--violet) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 4px 30px rgba(255,46,126,.32));
+}
+.hero h1 .cjk{
+  display:block; font-family:var(--f-body); font-weight:700;
+  font-size:clamp(21px,4.1vw,36px); letter-spacing:.02em; line-height:1.25; margin-top:14px;
+}
+.hero .lede{
+  margin:28px 0 0; max-width:60ch; font-size:clamp(15px,2.1vw,17.5px);
+  color:var(--text-2); line-height:1.85;
+}
+.hero .lede b{color:var(--text); font-weight:700}
+
+.stats{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr));
+  gap:1px; margin-top:38px; background:var(--rule);
+  border:1px solid var(--rule);
+}
+.stats div{background:rgba(10,7,19,.82); padding:14px 16px; display:flex; flex-direction:column; gap:2px}
+.stats .n{font-family:var(--f-hero); font-size:27px; line-height:1.1; color:var(--gold); font-variant-numeric:tabular-nums}
+.stats .n.hot{color:var(--magenta)}
+.stats .l{font-family:var(--f-mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--text-3)}
+
+.anim-up{animation:up .85s cubic-bezier(.2,.7,.25,1) both}
+.d1{animation-delay:.05s} .d2{animation-delay:.16s} .d3{animation-delay:.28s} .d4{animation-delay:.4s}
+@keyframes up{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none}}
+
+/* ══ SECTIONS ══ */
+section{padding:64px 0 0}
+.eyebrow{
+  font-family:var(--f-mono); font-size:10.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--magenta);
+}
+h2{
+  font-family:var(--f-cond); font-weight:600; text-transform:uppercase;
+  font-size:clamp(26px,4.6vw,38px); line-height:1.08; letter-spacing:.015em;
+  margin:12px 0 10px; color:var(--text);
+}
+h2 em{font-style:normal; color:var(--gold)}
+.sub{color:var(--text-2); font-size:15.5px; margin:0 0 26px; max-width:66ch; line-height:1.8}
+h3{font-family:var(--f-body); font-weight:700; font-size:16.5px; margin:0 0 8px; line-height:1.5}
+p{margin:0 0 15px; max-width:68ch}
+
+.rule-hot{height:2px; background:linear-gradient(90deg,var(--magenta),var(--orange) 45%,transparent 92%)}
+
+/* ══ decay ══ */
+.decay{
+  margin-top:40px; padding:20px 22px; background:var(--panel);
+  border:1px solid var(--rule); border-left:3px solid var(--gold);
+}
+.decay-hd{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
+.decay-hd b{font-family:var(--f-cond); font-size:18px; text-transform:uppercase; letter-spacing:.04em}
+.decay-hd span{font-family:var(--f-mono); font-size:11.5px; color:var(--text-3)}
+.bar{height:7px; background:var(--night-2); margin-top:14px; display:flex; overflow:hidden}
+.bar i{display:block; height:100%; animation:grow 1.1s cubic-bezier(.2,.8,.2,1) both}
+.bar .live{background:var(--t1); flex:0 0 14%}
+.bar .fade{background:var(--t3); flex:0 0 43%; opacity:.6; animation-delay:.12s}
+.bar .dead{background:var(--rule); flex:1; animation-delay:.24s}
+@keyframes grow{from{transform:scaleX(0); transform-origin:left} to{transform:none}}
+.decay p{margin:14px 0 0; font-size:14.5px; color:var(--text-2); line-height:1.8}
+.decay strong{color:var(--gold)}
+
+/* ══ source cards ══ */
+.sources{display:grid; gap:16px}
+@media(min-width:720px){.sources{grid-template-columns:1fr 1fr}}
+.src{
+  background:var(--panel); border:1px solid var(--rule); padding:22px;
+  display:flex; flex-direction:column; gap:12px; position:relative;
+  transition:border-color .25s, transform .25s;
+}
+.src:hover{border-color:var(--violet); transform:translateY(-2px)}
+.src .tag{align-self:flex-start}
+.src h3{margin:0; font-size:15px; line-height:1.5; font-family:var(--f-cond); font-weight:600; font-size:19px}
+.src .chan{font-family:var(--f-mono); font-size:12px; color:var(--text-3)}
+.src dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:6px 16px; font-size:13.5px}
+.src dt{color:var(--text-3); white-space:nowrap}
+.src dd{margin:0; color:var(--text-2)}
+.src .verdict{
+  margin-top:auto; padding-top:14px; border-top:1px dashed var(--rule);
+  font-size:13.5px; line-height:1.7; color:var(--text-2);
+}
+.src .verdict b{color:var(--text)}
+
+/* ══ tier tags ══ */
+.tag{
+  display:inline-block; font-family:var(--f-mono); font-size:10px; font-weight:500;
+  letter-spacing:.11em; text-transform:uppercase; padding:4px 9px; white-space:nowrap;
+}
+.tag.t1{color:var(--t1); background:var(--t1-dim); box-shadow:inset 0 0 0 1px var(--t1)}
+.tag.t2{color:var(--t2); background:var(--t2-dim); box-shadow:inset 0 0 0 1px var(--t2)}
+.tag.t3{color:var(--t3); background:var(--t3-dim); box-shadow:inset 0 0 0 1px var(--t3)}
+.tag.t4{color:var(--t4); background:var(--t4-dim); box-shadow:inset 0 0 0 1px var(--t4)}
+
+/* ══ legend ══ */
+.legend{border-top:1px solid var(--rule)}
+.legend .row{
+  display:grid; grid-template-columns:104px 1fr; gap:0 20px;
+  padding:16px 0; border-bottom:1px solid var(--rule-soft); align-items:start;
+}
+.legend .row > div:last-child{font-size:14.5px; color:var(--text-2); line-height:1.75}
+.legend b{color:var(--text); font-weight:700}
+
+/* ══ diagrams ══ */
+.figure{margin:8px 0 6px; background:var(--panel); border:1px solid var(--rule); padding:22px 18px}
+.figure svg{display:block; width:100%; height:auto}
+.figcap{
+  font-family:var(--f-mono); font-size:11.5px; color:var(--text-3);
+  margin-top:14px; padding-top:12px; border-top:1px solid var(--rule-soft); line-height:1.7;
+}
+.draw{stroke-dasharray:1000; stroke-dashoffset:1000; animation:draw 1.6s ease-out .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ══ claim ledger ══ */
+.ledger{border-top:1px solid var(--rule)}
+.claim{
+  padding:20px 0 20px 18px; border-bottom:1px solid var(--rule-soft);
+  border-left:3px solid var(--rule);
+}
+.claim.k1{border-left-color:var(--t1)}
+.claim.k2{border-left-color:var(--t2)}
+.claim.k3{border-left-color:var(--t3)}
+.claim.k4{border-left-color:var(--t4)}
+.claim-top{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:10px}
+.claim-top .cite{font-family:var(--f-mono); font-size:11px; color:var(--text-3); font-variant-numeric:tabular-nums}
+.claim h3{font-size:17px; margin:0 0 9px}
+.claim p{font-size:14.5px; color:var(--text-2); margin:0; line-height:1.8}
+.claim p + p{margin-top:11px}
+.claim .why{color:var(--text); font-weight:500}
+.claim b{color:var(--text)}
+
+blockquote{
+  margin:14px 0 0; padding:14px 18px; background:var(--night-2);
+  border-left:2px solid var(--cyan); font-size:14px; line-height:1.7; color:var(--text-2);
+}
+blockquote .en{font-style:italic; color:var(--text)}
+blockquote cite{display:block; margin-top:8px; font-style:normal; font-family:var(--f-mono); font-size:11px; color:var(--text-3)}
+
+/* ══ kill list ══ */
+.kill{display:flex; flex-direction:column; gap:15px}
+.killcard{background:var(--panel); border:1px solid var(--rule); border-top:2px solid var(--t4); padding:20px 22px}
+.killcard .hd{display:flex; gap:12px; align-items:baseline; flex-wrap:wrap; margin-bottom:10px}
+.killcard .hd b{font-family:var(--f-cond); font-size:20px; font-weight:600}
+.killcard .reason{
+  font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--t4);
+}
+.killcard p{font-size:14.5px; color:var(--text-2); margin:0; line-height:1.8}
+.killcard b{color:var(--text)}
+
+/* ══ rundown ══ */
+.scroller{overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--rule); background:var(--panel)}
+.rundown{width:100%; min-width:620px; border-collapse:collapse; font-size:14.5px}
+.rundown th{
+  text-align:left; font-family:var(--f-mono); font-size:10px; font-weight:500;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--night);
+  background:var(--gold); padding:9px 16px; white-space:nowrap;
+}
+.rundown td{padding:15px 16px; border-bottom:1px solid var(--rule-soft); vertical-align:top; line-height:1.7}
+.rundown tr:last-child td{border-bottom:none}
+.rundown td:first-child{
+  font-family:var(--f-mono); font-size:12px; color:var(--gold);
+  white-space:nowrap; font-variant-numeric:tabular-nums;
+}
+.rundown td:nth-child(2){color:var(--text-3); font-size:13.5px; width:29%}
+.rundown .vo{color:var(--text); font-weight:500}
+.rundown .vo b{color:var(--magenta)}
+
+/* ══ packages ══ */
+.packs{display:grid; gap:16px}
+@media(min-width:800px){.packs{grid-template-columns:repeat(3,1fr)}}
+.pack{
+  background:var(--panel); border:1px solid var(--rule); padding:22px;
+  display:flex; flex-direction:column; gap:12px; transition:border-color .25s,transform .25s;
+}
+.pack:hover{transform:translateY(-3px)}
+.pack.a{border-top:3px solid var(--magenta)} .pack.a:hover{border-color:var(--magenta)}
+.pack.b{border-top:3px solid var(--cyan)}    .pack.b:hover{border-color:var(--cyan)}
+.pack.c{border-top:3px solid var(--violet)}  .pack.c:hover{border-color:var(--violet)}
+.pack .pn{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3)}
+.pack h3{font-family:var(--f-cond); font-weight:600; font-size:22px; margin:0; text-transform:uppercase; letter-spacing:.01em}
+.pack .a-c{color:var(--magenta)} .pack .b-c{color:var(--cyan)} .pack .c-c{color:var(--violet)}
+.pack > p{font-size:14px; color:var(--text-2); margin:0; line-height:1.75}
+.pack .kv{border-top:1px solid var(--rule-soft); padding-top:12px; margin-top:auto; display:flex; flex-direction:column; gap:10px}
+.pack .kv div{display:flex; flex-direction:column; gap:3px}
+.pack .kv .k{font-family:var(--f-mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--text-3)}
+.pack .kv .v{font-size:13.5px; color:var(--text-2); line-height:1.65}
+
+/* ══ schema ══ */
+.schema{border-top:1px solid var(--rule)}
+.field{display:grid; grid-template-columns:200px 1fr; gap:0 22px; padding:13px 0; border-bottom:1px solid var(--rule-soft)}
+.field code{
+  font-family:var(--f-mono); font-size:12.5px; color:var(--cyan);
+  background:var(--night-2); padding:3px 8px; align-self:start; justify-self:start;
+  border:1px solid var(--rule-soft);
+}
+.field div:last-child{font-size:14.5px; color:var(--text-2); line-height:1.75}
+.field b{color:var(--text)}
+@media(max-width:640px){
+  .field{grid-template-columns:1fr; gap:7px}
+  .legend .row{grid-template-columns:1fr; gap:9px}
+}
+
+/* ══ image band ══ */
+.band{margin:64px 0 0; padding:0}
+.band img{
+  display:block; width:100%; height:auto; border:1px solid var(--rule);
+}
+.band figcaption{
+  margin-top:12px; font-size:13.5px; color:var(--text-3); line-height:1.8;
+  border-left:2px solid var(--gold); padding-left:14px; max-width:64ch;
+}
+
+/* ══ CTA ══ */
+.cta{
+  margin:72px 0 0; padding:40px 30px; text-align:center; position:relative; overflow:hidden;
+  background:
+    radial-gradient(120% 130% at 50% 0%,rgba(255,46,126,.22) 0%,transparent 62%),
+    linear-gradient(180deg,var(--panel-2),var(--panel));
+  border:1px solid var(--rule); border-top:2px solid var(--magenta);
+}
+.cta h2{margin:14px 0 12px}
+.cta p{margin:0 auto 26px; color:var(--text-2); font-size:15.5px; max-width:56ch}
+.cta p b{color:var(--text)}
+.btns{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.btn{
+  display:inline-flex; align-items:center; gap:9px; text-decoration:none;
+  font-family:var(--f-cond); font-weight:600; font-size:17px; text-transform:uppercase;
+  letter-spacing:.05em; padding:13px 26px; transition:transform .2s, box-shadow .2s, background .2s;
+}
+.btn-primary{
+  background:linear-gradient(96deg,var(--magenta),var(--orange));
+  color:#12040D; box-shadow:0 6px 26px rgba(255,46,126,.34);
+}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 34px rgba(255,46,126,.5)}
+.btn-ghost{background:transparent; color:var(--text); box-shadow:inset 0 0 0 1px var(--rule)}
+.btn-ghost:hover{background:var(--panel-2); box-shadow:inset 0 0 0 1px var(--violet); transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--cyan); outline-offset:3px}
+.contact{
+  margin-top:26px; padding-top:22px; border-top:1px solid var(--rule-soft);
+  font-family:var(--f-mono); font-size:12.5px; color:var(--text-3); line-height:2;
+}
+.contact a{color:var(--text-2); text-decoration:none}
+.contact a:hover{color:var(--cyan)}
+
+/* ══ note & footer ══ */
+.note{margin-top:40px; padding:26px 28px; background:var(--panel); border:1px solid var(--rule); border-left:3px solid var(--cyan)}
+.note h3{font-family:var(--f-cond); font-size:21px; text-transform:uppercase; margin-bottom:14px; letter-spacing:.02em}
+.note p{font-size:14.5px; color:var(--text-2); line-height:1.85}
+.note p:last-child{margin-bottom:0}
+.note strong{color:var(--text)}
+footer{margin-top:46px; padding:26px 0 70px; border-top:1px solid var(--rule); font-size:12.5px; color:var(--text-3); line-height:1.95}
+footer .mono{font-family:var(--f-mono)}
+</style>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <img class="hero-art" src="./fof-gta6-keyart.jpg" alt="" aria-hidden="true" onerror="this.remove()">
+  <div class="hero-veil"></div>
+  <div class="hero-in">
+    <div class="kicker anim-up d1">情報產線樣本 ・ 交付格式示範 ・ 非賣品</div>
+    <h1 class="anim-up d1">
+      GTA&nbsp;6
+      <span class="cjk">情報產線樣本｜從一則傳聞到一支能開拍的片</span>
+    </h1>
+    <p class="lede anim-up d2">
+      這份文件示範的不是「我找得到 GTA 6 的新聞」，而是<b>新聞進來之後、開拍之前的那一段判斷</b>：
+      哪一則能拍、哪一則拍了會傷頻道、憑什麼這樣分。今天的輸入是兩支英文影片，
+      輸出是一則可開拍的企劃、三則被擋下來的題材，以及擋下來的理由。
+    </p>
+    <div class="stats anim-up d3">
+      <div><span class="n">2</span><span class="l">輸入來源</span></div>
+      <div><span class="n">19</span><span class="l">分鐘素材</span></div>
+      <div><span class="n">11</span><span class="l">拆出主張</span></div>
+      <div><span class="n hot">1</span><span class="l">通過開拍</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ══ decay ══ -->
+<div class="decay anim-up d4">
+  <div class="decay-hd">
+    <b>這份文件會過期</b>
+    <span>D0 → D7 ・ 判讀基準日 2026-09-07 ・ 建議汰換 2026-09-14</span>
+  </div>
+  <div class="bar" role="img" aria-label="情報鮮度：第一天有效，約第三天起衰減，第七天後失效">
+    <i class="live"></i><i class="fade"></i><i class="dead"></i>
+  </div>
+  <p>
+    GTA 6 的爆料週期以天計。下面那則企劃，這週拍是獨家觀點，下週拍就是跟在別人後面。
+    <strong>這正是為什麼這件事需要有人每天做，而不是每季做一次。</strong>
+    這行字本身就是這份樣本最誠實的部分——它不是永久有效的作品集，是一次交付長什麼樣。
+  </p>
+</div>
+
+<!-- ══ 01 產線 ══ -->
+<section>
+  <div class="eyebrow">01 — Pipeline</div>
+  <h2>情報<em>產線</em>長什麼樣</h2>
+  <p class="sub">職缺說明寫的是「捕捉資訊 → 判斷有沒有流量 → 提出拍攝企劃 → 交給團隊製作」。把它拆開，實際運作是一條有淘汰率的漏斗——今天的淘汰率是 11 進 1 出。</p>
+
+  <div class="figure">
+    <svg viewBox="0 0 860 300" role="img" aria-label="情報產線流程圖：監控輸入、拆解為主張、四級分級、否決區與候選池、拍攝企劃、交付製作">
+      <defs>
+        <linearGradient id="gFlow" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#FFC24B"/><stop offset="50%" stop-color="#FF8A3D"/><stop offset="100%" stop-color="#FF2E7E"/>
+        </linearGradient>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#8677A8"/>
+        </marker>
+      </defs>
+
+      <line x1="16" y1="34" x2="844" y2="34" stroke="url(#gFlow)" stroke-width="2" class="draw"/>
+
+      <!-- stage boxes -->
+      <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#8677A8">
+        <text x="16" y="24">STAGE 01</text><text x="186" y="24">STAGE 02</text><text x="356" y="24">STAGE 03</text>
+        <text x="526" y="24">STAGE 04</text><text x="696" y="24">STAGE 05</text>
+      </g>
+
+      <g>
+        <rect x="16" y="52" width="140" height="66" fill="#1E1636" stroke="#33255A"/>
+        <rect x="186" y="52" width="140" height="66" fill="#1E1636" stroke="#33255A"/>
+        <rect x="356" y="52" width="140" height="66" fill="#1E1636" stroke="#33255A"/>
+        <rect x="526" y="52" width="140" height="66" fill="#1E1636" stroke="#33255A"/>
+        <rect x="696" y="52" width="148" height="66" fill="#1E1636" stroke="#FF2E7E"/>
+      </g>
+      <g font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="600" fill="#F2ECFF">
+        <text x="30" y="80">跨平台監控</text><text x="200" y="80">拆解為主張</text><text x="370" y="80">四級分級</text>
+        <text x="540" y="80">選題與企劃</text><text x="710" y="80">交付製作</text>
+      </g>
+      <g font-family="Noto Sans TC, sans-serif" font-size="11.5" fill="#B9AAD8">
+        <text x="30" y="102">Reddit・X・YT・論壇</text><text x="200" y="102">一片拆 5–15 條</text><text x="370" y="102">查證 + 交叉比對</text>
+        <text x="540" y="102">寫成分鏡稿</text><text x="710" y="102">團隊拿到即開拍</text>
+      </g>
+
+      <!-- arrows -->
+      <g stroke="#8677A8" stroke-width="1.4" marker-end="url(#ar)">
+        <line x1="158" y1="85" x2="182" y2="85"/><line x1="328" y1="85" x2="352" y2="85"/>
+        <line x1="498" y1="85" x2="522" y2="85"/><line x1="668" y1="85" x2="692" y2="85"/>
+      </g>
+
+      <!-- funnel counts -->
+      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#FFC24B">
+        <text x="30" y="140">2 支影片</text><text x="200" y="140">11 條主張</text><text x="370" y="140">分四級</text>
+        <text x="540" y="140">1 支企劃</text><text x="710" y="140">6 個鏡位</text>
+      </g>
+
+      <!-- reject branch -->
+      <path d="M426 122 L426 176 L214 176" stroke="#FF5B57" stroke-width="1.4" fill="none" marker-end="url(#ar)" stroke-dasharray="4 3"/>
+      <rect x="60" y="156" width="154" height="42" fill="#1E1636" stroke="#FF5B57"/>
+      <text x="76" y="176" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#FF5B57">否決區</text>
+      <text x="76" y="191" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#B9AAD8">10 條・附理由存檔</text>
+
+      <!-- library branch -->
+      <path d="M426 122 L426 238 L640 238" stroke="#3ADFE8" stroke-width="1.4" fill="none" marker-end="url(#ar)" stroke-dasharray="4 3"/>
+      <rect x="644" y="216" width="200" height="44" fill="#1E1636" stroke="#3ADFE8"/>
+      <text x="660" y="237" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#3ADFE8">素材庫沉澱</text>
+      <text x="660" y="252" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#B9AAD8">通過與否決都進庫</text>
+
+      <text x="440" y="286" font-family="Noto Sans TC, sans-serif" font-size="11.5" fill="#8677A8">否決的條目一樣要存——否則三個月後有人會重新提案同一則被殺過的題目</text>
+    </svg>
+    <div class="figcap">圖 1 ／ 情報產線。淘汰率不是浪費，是這份工作的產出品質本身。</div>
+  </div>
+</section>
+
+<!-- ══ 02 輸入 ══ -->
+<section>
+  <div class="eyebrow">02 — Input</div>
+  <h2>今日<em>輸入</em></h2>
+  <p class="sub">兩支影片同一天出現在訂閱清單裡，標題都像「GTA 6 最新情報」。分辨它們的差別花了十幾分鐘，而這個差別決定了能不能拍。</p>
+
+  <div class="sources">
+    <article class="src">
+      <span class="tag t1">第一手</span>
+      <h3>GTA 6: Robberies, Economy &amp; How Money Works Now</h3>
+      <div class="chan">TGG ・ @TGG_ ・ 12:48</div>
+      <dl>
+        <dt>取得方式</dt><dd>受邀至 Rockstar North 實機試玩</dd>
+        <dt>受訪者</dt><dd>Rob Nelson（GTA 6 開發共同主管）</dd>
+        <dt>型態</dt><dd>具名引述 + 實機畫面</dd>
+      </dl>
+      <div class="verdict"><b>可用。</b>本次唯一有具名開發者背書的來源，等級最高，能承載深度內容。</div>
+    </article>
+
+    <article class="src">
+      <span class="tag t3">社群推測</span>
+      <h3>BIGGEST GTA 6 MAP UPDATE EVER! (What Changed?)</h3>
+      <div class="chan">Robbin Rams ・ @RobbinRams ・ 07:53</div>
+      <dl>
+        <dt>取得方式</dt><dd>瀏覽社群自製地圖</dd>
+        <dt>實際主體</dt><dd>GTA Inside 社群拼圖 v16<br><b>（尚未公開發布的版本）</b></dd>
+        <dt>型態</dt><dd>玩家推測 + 預告片比對</dd>
+      </dl>
+      <div class="verdict"><b>有條件可用。</b>不是不能拍，是<b>不能照它的說法拍</b>——影片全程用「confirmed」「this is new」的語氣描述一份粉絲拼圖。</div>
+    </article>
+  </div>
+</section>
+
+<!-- ══ 03 分級 ══ -->
+<section>
+  <div class="eyebrow">03 — Evidence Tiers</div>
+  <h2>分級<em>標準</em></h2>
+  <p class="sub">每條情報進來先歸級，再決定能不能拍、用什麼語氣拍。這四級是固定的，不隨題材鬆動——標準會浮動就等於沒有標準。</p>
+
+  <div class="legend">
+    <div class="row"><div><span class="tag t1">第一手</span></div>
+      <div><b>Rockstar 官方發布，或具名開發者的公開發言。</b>可以用肯定句陳述，可以當影片主論點。</div></div>
+    <div class="row"><div><span class="tag t2">可實證</span></div>
+      <div><b>官方素材（預告片、Extended Look、官網）中可逐格指出的畫面。</b>可以肯定，但要標示是從畫面推得，而非官方說明。</div></div>
+    <div class="row"><div><span class="tag t3">社群推測</span></div>
+      <div><b>玩家拼圖、論壇分析、無來源爆料。</b>可以拍，但必須改語氣：講「社群認為」而不是「已確認」。流量常常最高，風險也最高。</div></div>
+    <div class="row"><div><span class="tag t4">紅旗</span></div>
+      <div><b>與已知事實衝突，或明顯是轉錄／誤植。</b>一律不拍，並回頭檢查同一來源的其他條目。</div></div>
+  </div>
+</section>
+
+<!-- ══ 04 判讀 ══ -->
+<section>
+  <div class="eyebrow">04 — Ledger</div>
+  <h2>逐條<em>判讀</em></h2>
+  <p class="sub">兩支影片拆成 11 條可檢驗的主張。以下列出關鍵的 6 條，含唯一通過的那一條與唯一的紅旗。</p>
+
+  <div class="ledger">
+    <article class="claim k1">
+      <div class="claim-top"><span class="tag t1">第一手</span><span class="cite">TGG 09:03 / 09:41</span></div>
+      <h3>錢沒賺夠，主線劇情不讓你往下走</h3>
+      <p>GTA 6 會在劇情特定節點設現金門檻，玩家必須先達到金額目標才能推進。Rockstar 的說法是要讓故事有時間沉澱、並開啟新的聯絡人。</p>
+      <p class="why">→ 通過。有具名開發者背書、機制明確、而且一句話講得完。這一則往下走成企劃。</p>
+    </article>
+
+    <article class="claim k1">
+      <div class="claim-top"><span class="tag t1">第一手</span><span class="cite">TGG 02:09 / 08:10</span></div>
+      <h3>三種錢、五級搶劫、贓物必須找銷贓人變現</h3>
+      <p>銀行存款（安全）、身上現金（死亡會掉）、行李袋贓物（須找 fence 處理）。搶劫分五級，從手機行、超商到珠寶店、銀行、幫派據點，最上層是劇情大型搶案。銷贓管道依贓物類型分流，且需隨劇情逐步解鎖。</p>
+      <blockquote>
+        <span class="en">“Making money this way off mission is an important part of the game.”</span>
+        <cite>Rob Nelson，GTA 6 開發共同主管 ・ 引自 TGG 訪談 04:58</cite>
+      </blockquote>
+      <p class="why">→ 保留，不是這週的主打。機制紮實但講清楚要 3 分鐘以上，適合長片或系列第二支。</p>
+    </article>
+
+    <article class="claim k2">
+      <div class="claim-top"><span class="tag t2">可實證</span><span class="cite">Rams 01:08</span></div>
+      <h3>Starfish Island 存在於 GTA 6 地圖中</h3>
+      <p>Starfish Island 是 2002 年《俠盜獵車手：罪惡都市》的經典地點。影片指出預告片中出現過寫著 Starfish Island 的路牌——有畫面依據，但依據的是路牌，不是官方說明。</p>
+      <p class="why">→ 可用，但要降語氣。正確講法是「預告片路牌指向」，不是「官方確認」。懷舊角度有流量，列為備選。</p>
+    </article>
+
+    <article class="claim k3">
+      <div class="claim-top"><span class="tag t3">社群推測</span><span class="cite">Rams 03:38</span></div>
+      <h3>「新城市 Capri 曝光，是我們原本不知道的」</h3>
+      <p>Capri、Naples、Sebring、Lakeland——這四個全部是<b>佛羅里達州真實存在的地名</b>。GTA 6 背景州 Leonida 即以佛州為原型。</p>
+      <p class="why">→ 這極可能不是「曝光」，而是社群製圖者依真實佛州地理做的合理填補。照原文拍會變成假新聞。</p>
+    </article>
+
+    <article class="claim k4">
+      <div class="claim-top"><span class="tag t4">紅旗</span><span class="cite">Rams 02:39</span></div>
+      <h3>地圖北部出現 Mount Chiliad</h3>
+      <p><b>Mount Chiliad 是《俠盜獵車手 V》聖安地列斯州的地標，不在佛羅里達。</b>它出現在一張 Leonida 地圖的北部，最可能是社群製圖的暫定標籤或內部玩笑，而不是 GTA 6 的實際地點。</p>
+      <p class="why">→ 不拍，並據此下修整份 v16 地圖的可信度。這條是本次判讀最重要的一筆：<b>它證明這份社群地圖裡混有未經查證的填充內容</b>，所以同一支影片的其他地點主張也不能照單全收。<br>（保留但降級：不排除是製圖者刻意的致敬彩蛋，需向 GTA Inside 社群求證才能定案——我沒查到說明，所以標紅旗而不是標錯誤。）</p>
+    </article>
+
+    <article class="claim k4">
+      <div class="claim-top"><span class="tag t4">紅旗</span><span class="cite">Rams 04:06 / 04:46</span></div>
+      <h3>「Grape for Islands」「Grapelhorn」「Gelhorn」</h3>
+      <p>同一支影片裡，同一個地名被念成三種拼法。這是語音轉錄品質問題，代表任何依賴此逐字稿的地名都必須回原片畫面核對。</p>
+      <p class="why">→ 全數擱置。地名拼錯上字幕，留言區會抓，而且會連帶質疑整支影片。</p>
+    </article>
+  </div>
+</section>
+
+<!-- ══ 05 否決區 ══ -->
+<section>
+  <div class="eyebrow">05 — Kill List</div>
+  <h2>否決<em>區</em></h2>
+  <p class="sub">被擋下來的東西比通過的更能說明標準在哪。三則各自代表一種不同的否決理由。</p>
+
+  <div class="kill">
+    <div class="killcard">
+      <div class="hd"><b>「GTA 6 新城市 Capri 曝光！」</b><span class="reason">推測誤植為事實</span></div>
+      <p>素材有流量潛力，但把社群製圖者的合理推測講成官方曝光，是事實錯誤。<b>可以救</b>——改成「社群拼圖 v16 更新，玩家把佛州真實城鎮填進 Leonida」，一樣有看頭，而且是對的。不是砍掉，是重寫框架。</p>
+    </div>
+    <div class="killcard">
+      <div class="hd"><b>「GTA 6 地圖出現 Mount Chiliad！」</b><span class="reason">與已知事實衝突</span></div>
+      <p>這是本次流量潛力最高的一則，也是最不能碰的一則。跨作品地標回歸的標題必爆，但依據是一份未發布的粉絲拼圖，且與該地標的已知所在州衝突。<b>一條錯的情報換來的留言不是討論，是打臉。</b>對還沒建立信任的新頻道，這種傷害要花很久才補得回來。</p>
+    </div>
+    <div class="killcard">
+      <div class="hd"><b>Rockstar 開發者在遊戲裡翻到滿牆腳照</b><span class="reason">有梗但無資訊量</span></div>
+      <p>畫面有趣、確實是第一手，但它是一個 15 秒的笑點，撐不起一支影片，主體又是開發者的私下反應而非遊戲情報。<b>歸類為素材庫的 B-roll 彩蛋</b>，等做「搶劫機制」那支時當插科打諢用，不獨立成片。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 06 企劃 ══ -->
+<section>
+  <div class="eyebrow">06 — Shooting Script</div>
+  <h2>通過的那一則 → <em>拍攝企劃</em></h2>
+  <p class="sub">11 條進，1 條出。這是交給製作團隊時我會給的東西——不是「你們拍這個題材」，是可以直接開機的分鏡稿。</p>
+
+  <p style="font-size:14.5px;color:var(--text-2)">
+    <b style="color:var(--text)">選它的理由：</b>來源等級最高（具名開發者）、機制單純到一句話講得完，
+    而且它會讓玩家自動分成兩派吵架——<b style="color:var(--magenta)">「這是逼玩家肝」對上「這才叫 RPG」</b>。
+    留言區的爭議量比觀看數更能餵演算法，這是選題時真正在算的東西。
+  </p>
+
+  <div class="scroller">
+    <table class="rundown">
+      <thead><tr><th>秒數</th><th>畫面</th><th>口白 / 字幕</th></tr></thead>
+      <tbody>
+        <tr><td>00:00–00:04</td><td>黑底大字，紅色刪節線劃過「直接看完劇情」</td>
+          <td class="vo">你花錢買的 GTA 6，Rockstar 不打算讓你直接看完劇情。</td></tr>
+        <tr><td>00:04–00:12</td><td>GTA 5 搶劫任務畫面，右上角錢數飆升</td>
+          <td class="vo">以前你在 GTA 5 街上賺的每一塊錢，對主線劇情零影響。錢是錢，故事是故事，兩個世界。</td></tr>
+        <tr><td>00:12–00:24</td><td>Extended Look 中 Lucia 走進商店；右上角三種貨幣 UI 特寫</td>
+          <td class="vo">六代整個翻掉。銀行存款、身上現金、行李袋裡的贓物，三種錢分開算——死掉的話，身上那份會不見。</td></tr>
+        <tr><td>00:24–00:38</td><td>地圖介面，游標滑過搶劫標記顯示預估收益</td>
+          <td class="vo">重點在這裡：劇情走到某些節點會卡住。<b>錢沒賺到門檻，主線不讓你往下走。</b></td></tr>
+        <tr><td>00:38–00:50</td><td>Rob Nelson 姓名職稱字卡，下方壓引述原文</td>
+          <td class="vo">這不是猜的。開發共同主管 Rob Nelson 說，任務外賺錢「是這款遊戲很重要的一部分」。他們是故意的。</td></tr>
+        <tr><td>00:50–01:00</td><td>分割畫面：左「這是逼肝」右「這才叫沉浸」，中間問號</td>
+          <td class="vo">所以問題來了——為了看下一段劇情先去搶超商，這是沉浸感，還是把手遊的日常任務搬進單機遊戲？留言告訴我。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13.5px;color:var(--text-3);margin-top:14px">
+    <b style="color:var(--text-2)">備註給製作：</b>00:38 的字卡務必壓上受訪者職稱與出處，這是這支片與其他 GTA 頻道的差別所在。
+    引述原文以英文呈現、中文字幕在下，不要只放翻譯——原文本身就是可信度。
+  </p>
+</section>
+
+<!-- ══ 07 素材庫 ══ -->
+<section>
+  <div class="eyebrow">07 — Content Library</div>
+  <h2>素材庫<em>架構</em></h2>
+  <p class="sub">職缺說明第 7 條寫「協助建立 GTA 6 遊戲資料庫與內容素材庫」。素材庫的價值不在存了多少連結，在於三個月後還找得到、還知道當初為什麼收。</p>
+
+  <div class="figure">
+    <svg viewBox="0 0 860 250" role="img" aria-label="素材庫架構圖：來源層、判讀層、資產層與兩個出口">
+      <defs>
+        <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#8677A8"/>
+        </marker>
+      </defs>
+      <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#8677A8">
+        <text x="16" y="20">LAYER 1 ／ 來源</text>
+        <text x="306" y="20">LAYER 2 ／ 判讀</text>
+        <text x="596" y="20">LAYER 3 ／ 資產</text>
+      </g>
+
+      <rect x="16" y="32" width="250" height="150" fill="#17102A" stroke="#33255A"/>
+      <rect x="306" y="32" width="250" height="150" fill="#17102A" stroke="#FFC24B"/>
+      <rect x="596" y="32" width="248" height="150" fill="#17102A" stroke="#3ADFE8"/>
+
+      <g font-family="Noto Sans TC, sans-serif" font-size="12.5" fill="#B9AAD8">
+        <text x="34" y="60">・Reddit r/GTA6・GTAForums</text>
+        <text x="34" y="84">・X 爆料者信譽名單</text>
+        <text x="34" y="108">・YouTube 英文頻道</text>
+        <text x="34" y="132">・Rockstar 官方發布</text>
+        <text x="34" y="156">・競品中文頻道對照</text>
+
+        <text x="324" y="60">・拆成單一 claim</text>
+        <text x="324" y="84">・標 evidence_tier</text>
+        <text x="324" y="108">・找第二來源比對</text>
+        <text x="324" y="132">・記 timecode 可回溯</text>
+        <text x="324" y="156">・設 decay_by 失效日</text>
+
+        <text x="614" y="60">・可開拍候選池</text>
+        <text x="614" y="84">・否決區（附理由）</text>
+        <text x="614" y="108">・B-roll 素材索引</text>
+        <text x="614" y="132">・爆料者命中率統計</text>
+        <text x="614" y="156">・台灣落地角度庫</text>
+      </g>
+
+      <g stroke="#8677A8" stroke-width="1.4" marker-end="url(#ar2)">
+        <line x1="270" y1="107" x2="300" y2="107"/><line x1="560" y1="107" x2="590" y2="107"/>
+      </g>
+
+      <rect x="596" y="200" width="118" height="34" fill="#1E1636" stroke="#FF2E7E"/>
+      <text x="612" y="222" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="600" fill="#FF2E7E">每日情報簡報</text>
+      <rect x="726" y="200" width="118" height="34" fill="#1E1636" stroke="#9D6BFF"/>
+      <text x="742" y="222" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="600" fill="#9D6BFF">可開拍企劃案</text>
+      <path d="M720 182 L655 196" stroke="#8677A8" stroke-width="1.2" fill="none" marker-end="url(#ar2)"/>
+      <path d="M720 182 L785 196" stroke="#8677A8" stroke-width="1.2" fill="none" marker-end="url(#ar2)"/>
+      <text x="16" y="222" font-family="Noto Sans TC, sans-serif" font-size="11.5" fill="#8677A8">兩個出口＝兩種可計費的交付單位</text>
+    </svg>
+    <div class="figcap">圖 2 ／ 素材庫三層架構。Layer 2 是整個庫的價值所在——沒有判讀層，Layer 3 就退化成一堆分不出真假的連結。</div>
+  </div>
+
+  <div class="schema">
+    <div class="field"><code>source_channel</code><div>來源頻道與影片 ID。同一頻道的歷史命中率會累積成信譽分，往後直接影響採信門檻。</div></div>
+    <div class="field"><code>evidence_tier</code><div>四級分級。<b>這是整個庫的主鍵</b>——沒有這一欄，素材庫三個月後就會退化成一堆分不出真假的連結。</div></div>
+    <div class="field"><code>claim</code><div>拆到最小的單一主張。一支影片會拆出 5 至 15 條，不以影片為單位存。</div></div>
+    <div class="field"><code>timecode</code><div>原片時間碼。查證與剪輯都要回頭找畫面，沒有這欄等於要重看整支。</div></div>
+    <div class="field"><code>corroboration</code><div>第二來源。空白本身就是資訊：<b>孤證不上片</b>。</div></div>
+    <div class="field"><code>decay_by</code><div>預估失效日。爆料類 7 天、機制類到發售日、歷史考據類無期限。<b>過期自動退出候選池</b>，避免翻到舊卡當新料。</div></div>
+    <div class="field"><code>angle_tw</code><div>台灣觀眾的落地角度。同一則情報，海外頻道講機制，我們要找的是台灣玩家會吵起來的那個點——<b>這一欄是翻譯與企劃的分界線</b>。</div></div>
+    <div class="field"><code>status</code><div>候選／已否決／已排程／已上片，含否決理由，避免三個月後有人重新提案同一則被殺過的題目。</div></div>
+  </div>
+</section>
+
+<!-- ══ 08 合作方式 ══ -->
+<figure class="band">
+  <img src="./fof-gta6-mosaic.jpg" alt="Grand Theft Auto VI 主視覺" onerror="this.closest('figure').remove()">
+  <figcaption>《Grand Theft Auto VI》2026-11-19 發售。距今約 10 週——內容線要卡在發售前建立起來，
+  才吃得到發售當週的流量峰值。這是一條有時間壓力的線。</figcaption>
+</figure>
+
+<section>
+  <div class="eyebrow">08 — Engagement</div>
+  <h2>三種<em>合作結構</em></h2>
+  <p class="sub">三組可單獨啟動，也可組合。差別在買的是「產出」、「系統」還是「團隊能力」——這三件事的計價邏輯不同，不該混在同一個數字裡談。</p>
+
+  <div class="figure">
+    <svg viewBox="0 0 860 200" role="img" aria-label="三組方案架構圖：產出、系統、能力三層與其相互關係">
+      <defs>
+        <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#8677A8"/>
+        </marker>
+      </defs>
+      <rect x="16" y="40" width="252" height="88" fill="#17102A" stroke="#FF2E7E" stroke-width="1.6"/>
+      <rect x="304" y="40" width="252" height="88" fill="#17102A" stroke="#3ADFE8" stroke-width="1.6"/>
+      <rect x="592" y="40" width="252" height="88" fill="#17102A" stroke="#9D6BFF" stroke-width="1.6"/>
+
+      <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#8677A8">
+        <text x="34" y="30">第一組</text><text x="322" y="30">第二組</text><text x="610" y="30">第三組</text>
+      </g>
+      <g font-family="Barlow Condensed, sans-serif" font-size="21" font-weight="600">
+        <text x="34" y="72" fill="#FF2E7E">產出</text>
+        <text x="322" y="72" fill="#3ADFE8">系統</text>
+        <text x="610" y="72" fill="#9D6BFF">能力</text>
+      </g>
+      <g font-family="Noto Sans TC, sans-serif" font-size="12.5" fill="#B9AAD8">
+        <text x="86" y="72">情報簡報＋拍攝企劃</text>
+        <text x="374" y="72">情報工作流＋素材庫</text>
+        <text x="662" y="72">團隊 AI 工作流內訓</text>
+        <text x="34" y="98">按交付件數計價</text>
+        <text x="322" y="98">一次性專案</text>
+        <text x="610" y="98">單場工作坊</text>
+        <text x="34" y="118">我做，你們拍</text>
+        <text x="322" y="118">建好交給你們用</text>
+        <text x="610" y="118">你們自己會做</text>
+      </g>
+
+      <path d="M268 84 L300 84" stroke="#8677A8" stroke-width="1.4" marker-end="url(#ar3)"/>
+      <path d="M556 84 L588 84" stroke="#8677A8" stroke-width="1.4" marker-end="url(#ar3)"/>
+      <text x="240" y="168" font-family="Noto Sans TC, sans-serif" font-size="12" fill="#FFC24B">依賴度由高到低 ─── 我方參與逐段退場，這是刻意設計的</text>
+      <path d="M16 150 L844 150" stroke="#33255A" stroke-width="1"/>
+    </svg>
+    <div class="figcap">圖 3 ／ 三組方案的關係是遞進的，不是三選一的價目表。第三組做完，這條產線可以不需要我——這是設計目標，不是風險。</div>
+  </div>
+
+  <div class="packs">
+    <article class="pack a">
+      <div class="pn">Package 01</div>
+      <h3 class="a-c">產出</h3>
+      <p>由我負責 GTA 6 海外情報精選與短影音企劃撰寫。每期交付結構化情報包與可直接開拍的分鏡稿，含黃金前 3 秒 Hook、畫面建議與爭議點設計，團隊拿到即可開機。</p>
+      <div class="kv">
+        <div><span class="k">交付單位</span><span class="v">每期情報簡報 1 份 ＋ 分鏡稿數支，按件計價</span></div>
+        <div><span class="k">適用</span><span class="v">頻道已要開，缺的是穩定的選題與腳本產能</span></div>
+      </div>
+    </article>
+
+    <article class="pack b">
+      <div class="pn">Package 02</div>
+      <h3 class="b-c">系統</h3>
+      <p>建置專屬情報工作流與 Notion 內容中控台：串接海外 Reddit／X／YouTube 監控、自動去重、依四級標準分流入庫，形成可長期複用的數位素材資產。</p>
+      <div class="kv">
+        <div><span class="k">交付單位</span><span class="v">中控系統 1 套 ＋ 監控工作流模組 ＋ SOP 手冊，一次性專案</span></div>
+        <div><span class="k">適用</span><span class="v">情報散在各人手機裡，換人就斷線</span></div>
+      </div>
+    </article>
+
+    <article class="pack c">
+      <div class="pn">Package 03</div>
+      <h3 class="c-c">能力</h3>
+      <p>為內容團隊舉辦專屬 AI 工作流實戰工作坊：情報翻譯與初篩、選題判斷標準、縮圖 Prompt 與分鏡發想，讓判讀能力留在團隊內部而不是留在外部顧問身上。</p>
+      <div class="kv">
+        <div><span class="k">交付單位</span><span class="v">3–4 小時工作坊 1 場 ＋ 教材與範本庫 ＋ 課後諮詢期</span></div>
+        <div><span class="k">適用</span><span class="v">已有人手，缺的是方法與標準</span></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="note">
+    <h3>關於首期怎麼開始</h3>
+    <p>
+      建議<strong>以第一組的首期交付作為起點</strong>：一個獨立計價的交付段，跑完雙方都看得到實際的流量表現與協作節奏，
+      再決定要不要往第二、三組延伸，或轉為固定編制。
+      <strong>首期是完整的一段交付，不是試用期</strong>——它有明確的驗收標準與計價，這樣雙方的期待才對得齊。
+    </p>
+    <p>
+      這個角色<strong>可以用貴司原本規劃的兼職形式合作，也可以用按件計費的外包形式承接</strong>。
+      後者不佔用人力編制、不需要跑聘僱流程，對一條還在驗證的新內容線來說，風險結構比較合理。兩種都能談。
+    </p>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<div class="cta">
+  <div class="eyebrow" style="color:var(--gold)">Next Step</div>
+  <h2>15 分鐘，我把這條產線<em>跑一次</em>給你看</h2>
+  <p>
+    這份文件是<b>格式樣本，不是選題清單</b>。它展示的是一則情報從進來到開拍的完整處理流程、分級標準與素材庫設計。
+    刻意<b>沒有</b>附上本週其他可開拍的題材——那是這份工作的產出本身。
+  </p>
+  <div class="btns">
+    <a class="btn btn-primary" href="https://app.notion.com/p/choosehill-ai/GTA6-Chase-FOF-GTA-AI-3d1026255e6b81cfbf72f8b87a765a46" target="_blank" rel="noopener">看完整提案履歷 →</a>
+    <a class="btn btn-ghost" href="https://www.choosehill.com/" target="_blank" rel="noopener">Choosehill 選擇之丘</a>
+    <a class="btn btn-ghost" href="https://www.choosehill.com/portfolio" target="_blank" rel="noopener">代表專案</a>
+  </div>
+  <div class="contact">
+    趙建翔 Chase Chao ・ Choosehill 選擇之丘 AI 工作室<br>
+    <a href="mailto:choosehill@gmail.com">choosehill@gmail.com</a> ・ 0939-339-343<br>
+    AI 應用規劃顧問 ／ AI 系統建置 &amp; 內容產製
+  </div>
+</div>
+
+<div class="note">
+  <h3>關於這份文件</h3>
+  <p>
+    兩支來源影片是公開影片，所有主張均標註頻道與時間碼可回溯。
+    我對這兩支影片本身也做了判讀，包括指出其中一支的語氣問題——<strong>連參考來源都要質疑，是這份工作的基本動作。</strong>
+  </p>
+  <p>
+    本頁中的 GTA 6 相關內容為公開資訊之整理與評述，視覺為原創繪製，未使用 Rockstar Games 之美術素材。
+    《Grand Theft Auto》相關商標歸 Rockstar Games 所有，本頁與其無隸屬關係。
+  </p>
+</div>
+
+<footer>
+  <span class="mono">判讀基準日 2026-09-07 ・ 建議汰換日 2026-09-14</span><br>
+  來源：TGG《GTA 6: Robberies, Economy &amp; How Money Works Now》<span class="mono">CMXxuSmzXsk</span> ／
+  Robbin Rams《BIGGEST GTA 6 MAP UPDATE EVER!》<span class="mono">0nIameDhUrg</span><br>
+  外部查證：GTA 6 發售日 2026-11-19（Rockstar 官方確認）・社群自製地圖之非官方性質（GameSpot、GamesRadar 報導）<br>
+  © 2026 Choosehill 選擇之丘 AI 工作室
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var c = document.getElementById('sky');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, DPR, t = 0;
+
+  var palms = [
+    {x:0.06, s:1.00}, {x:0.15, s:0.72}, {x:0.86, s:0.92}, {x:0.95, s:0.66}
+  ];
+
+  function size(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = c.clientWidth; H = c.clientHeight || 460;
+    c.width = W * DPR; c.height = H * DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+
+  function palm(x, y, s){
+    ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+    ctx.fillStyle = '#080511'; ctx.strokeStyle = '#080511';
+    // trunk
+    ctx.lineWidth = 7; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(0,0); ctx.quadraticCurveTo(-12,-90,6,-168); ctx.stroke();
+    // fronds
+    for(var i=0;i<7;i++){
+      var a = -Math.PI/2 + (i-3)*0.46;
+      var lx = Math.cos(a)*82, ly = Math.sin(a)*62;
+      ctx.lineWidth = 5;
+      ctx.beginPath(); ctx.moveTo(6,-168);
+      ctx.quadraticCurveTo(6+lx*0.55, -168+ly*0.85, 6+lx, -168+ly+22);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function draw(){
+    // sky
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,   '#160B32');
+    g.addColorStop(0.34,'#4A1550');
+    g.addColorStop(0.58,'#C22A61');
+    g.addColorStop(0.74,'#FF6A35');
+    g.addColorStop(0.86,'#FFB44A');
+    g.addColorStop(1,   '#2A0F2E');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+    var hz = H * 0.80;
+    var sunY = hz - H*0.20 + Math.sin(t/260)*3;
+    var sunR = Math.min(W,H) * 0.20;
+    var cx = W * 0.5;
+
+    // sun glow
+    var gg = ctx.createRadialGradient(cx,sunY,sunR*0.2,cx,sunY,sunR*2.6);
+    gg.addColorStop(0,'rgba(255,190,90,.55)'); gg.addColorStop(1,'rgba(255,120,60,0)');
+    ctx.fillStyle = gg; ctx.beginPath(); ctx.arc(cx,sunY,sunR*2.6,0,7); ctx.fill();
+
+    // sun disc
+    ctx.save(); ctx.beginPath(); ctx.arc(cx,sunY,sunR,0,7); ctx.clip();
+    var sg = ctx.createLinearGradient(0,sunY-sunR,0,sunY+sunR);
+    sg.addColorStop(0,'#FFE9A8'); sg.addColorStop(0.5,'#FFB03C'); sg.addColorStop(1,'#FF3D6E');
+    ctx.fillStyle = sg; ctx.fillRect(cx-sunR,sunY-sunR,sunR*2,sunR*2);
+    // scanlines
+    ctx.fillStyle = 'rgba(20,6,26,.85)';
+    for(var i=0;i<9;i++){
+      var yy = sunY + sunR*0.06 + i*(sunR*0.115);
+      ctx.fillRect(cx-sunR, yy, sunR*2, 1.6 + i*0.75);
+    }
+    ctx.restore();
+
+    // water
+    var wg = ctx.createLinearGradient(0,hz,0,H);
+    wg.addColorStop(0,'rgba(255,110,70,.42)'); wg.addColorStop(1,'rgba(18,8,28,.96)');
+    ctx.fillStyle = wg; ctx.fillRect(0,hz,W,H-hz);
+    // shimmer
+    ctx.fillStyle = 'rgba(255,205,130,.30)';
+    for(var j=0;j<16;j++){
+      var yy2 = hz + 5 + j*((H-hz)/16);
+      var w = (sunR*1.7) * (1 - j/19) * (0.72 + 0.28*Math.sin(t/28 + j*0.85));
+      ctx.fillRect(cx - w/2, yy2, w, 1.5);
+    }
+    // horizon line
+    ctx.fillStyle = 'rgba(255,220,160,.45)'; ctx.fillRect(0,hz-1,W,1.4);
+
+    // palms
+    palms.forEach(function(p){ palm(p.x*W, hz + 16, p.s * Math.min(1, W/900)); });
+
+    // grain
+    ctx.fillStyle = 'rgba(255,255,255,.018)';
+    for(var k=0;k<130;k++){
+      ctx.fillRect(Math.random()*W, Math.random()*H, 1, 1);
+    }
+  }
+
+  function loop(){ t++; draw(); requestAnimationFrame(loop); }
+
+  function boot(){ size(); draw(); if(!reduce) loop(); }
+  window.addEventListener('resize', function(){ size(); draw(); });
+  boot();
+})();
+</script>
